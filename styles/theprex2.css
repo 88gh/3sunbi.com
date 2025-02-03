@@ -12,6 +12,13 @@ body {
     line-height: 1.6;
 }
 
+/* Logo sizing for responsiveness */
+#logo {
+  width: 20vw;
+  max-width: 150px;
+  height: auto;
+}
+
 /* Splash (initial) state */
 #site-header.splash-active {
   position: fixed;

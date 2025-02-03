@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'TitleMedium';
+    src: url('https://raw.githubusercontent.com/88gh/88gh.github.io/main/kr/Title_Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    margin: 0;
+    font-family: 'TitleMedium', Segoe UI, sans-serif;
+    background-color: #202022;
+    color: #ffffff;
+    line-height: 1.6;
+}
+:lang(en) {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 768px;
+    margin: auto;
+    padding: 4px;
+}
+header {
+    background: #202022;
+    color: #ffffff;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    margin: 0;
+    min-height: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden;
+}
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Align to the bottom of the header */
+    left: 50%; /* Center the element */
+    width: 1500px; /* Total width of the visible border */
+    height: 2.4px; /* Height of the border */
+    background: linear-gradient(to right, 
+                                transparent 0%, 
+                                #6080a0 23.33%, /* Start solid color more gradually */
+                                #6080a0 76.67%, /* End solid color more gradually */
+                                transparent 100%);
+    transform: translateX(-50%); /* Center the element horizontally */
+    z-index: 10;
+}
+
+header h1 {
+    text-align: left;
+    margin: 0;
+    font-size: 24px;
+}
+h2 {
+    color: #ffffff;
+    font-size: 22px;
+    padding: 8px;
+}
+h3 {
+    color: #ffffff;
+    font-size: 18px;
+    padding: 7px;
+    padding-bottom: 0px;
+}
+h4 {
+    color: #ffffff;
+    font-size: 16px;
+    padding: 7px;
+    padding-bottom: 0px;
+}
+
+p, li {
+    font-size: 18px;
+}
+p {
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    border-top: 1px solid #575757;
+    padding-top: 8px;
+    padding-bottom: 7px;
+}
+ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+footer {
+    padding: 0px 0;
+    background-color: white;
+    color: black;
+    font-size: 0.6rem;
+}
+footer * {
+    margin: 0;
+    padding: 0;
+}
+footer .container {
+    padding: 0;
+}
+footer a {
+    color: black;
+    text-decoration: none;
+}
+footer a:hover, footer a:focus {
+    color: green;
+}
+html {
+    scroll-behavior: smooth;
+}
+.badge {
+    background-color: #80a060;
+    margin-left: 0;
+    margin-right: 0;
+}
+.badger {
+    background-color: #a06060;
+    margin-left: 0;
+    margin-right: 0;
+}
+.badgeb {
+    background-color: #6080a0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.custom-list-item {
+    background-color: #303030;
+    color: #ffffff;
+    border: none;
+}
+.secfpf {
+    background-color: #202020;
+    margin: 0;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 10px;
+    border-radius: 6px;
+}
+.secfpf h2 {
+    margin-bottom: 0px;
+}
+.secfpf p {
+    margin-top: 4px;
+    font-size: 18px;
+}
+.section {
+    background-color: #303030;
+    margin: 0;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1.6px solid #374049;
+}
+#lin {
+    margin-bottom: 64px;
+}
+.section .list-group {
+    padding-left: 0;
+    padding-right: 0;
+}
+.section .list-group-item {
+    padding: 0; 
+    padding-top: 8px;
+    padding-bottom: 10px;
+    border: none; 
+    border-top: 1px solid #575757;
+    border-radius: 0px;
+}
+.section .list-group-item .badge, 
+.section .list-group-item .badger, 
+.section .list-group-item .badgeb {
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+}
+
+.section .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.section .row > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+@media (min-width: 768px) {
+    .section .list-group-item .col-md-auto {
+        padding-right: 15px;
+    }
+}
+@media (max-width: 767.98px) {
+    .section .list-group-item .col-md > div:first-child strong {
+        display: block;
+        text-align: center;
+    }
+}
+@media (max-width: 767.98px) {
+    .secfpf .container .row .col-md-4 {
+        order: -1;
+    }
+    .secfpf img {
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 768px) {
+    div.col-md-8.order-md-1 p.curpmaq {
+        margin-top: 40px;
+    }
+<!--    div.col-md-8.order-md-1 p.curpmaw {
+        margin-top: 5px;
+        margin-bottom: 1px;
+    }-->
+}
+div.col-md-8.order-md-1 p.curpmaw {
+    background-color: #6080a0;
+    display: inline-block;
+    margin: 0;
+    margin-top: 6px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    border-radius: 5px; 
+}
+
+.card-body {
+    background-color: #303030;
+    color: white;
+    border: none;
+}

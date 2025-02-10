@@ -10,36 +10,42 @@ window.addEventListener('load', function() {
   const header = document.getElementById('site-header');
   const logo   = document.getElementById('logo');
   
-  // (A) First: Show the big splash image, animate from scale(0.5) → scale(1)
+  // --- (A) First 2s: Big splash image (grow animation) ---
+
+  // 1) Set the splash image + big size + initial transform
   logo.src             = "https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true";
-  logo.style.height    = "120px";    // bigger than normal
+  logo.style.height    = "120px";         // bigger than normal
   logo.style.transform = "scale(0.5)";
   logo.style.opacity   = "0";
-  logo.style.animation = "none";     // clear any old animation
-  
-  // Force reflow, then add the animation
-  requestAnimationFrame(() => {
-    logo.style.animation = "splashLogoFadeIn 2s forwards";
-  });
+  logo.style.animation = "none";
 
-  // (B) After 2s, remove splash & animate the second image
+  // 2) Force the browser to apply these styles now
+  void logo.offsetWidth;  // triggers reflow
+
+  // 3) Now assign the “grow” animation
+  logo.style.animation = "splashLogoFadeIn 2s forwards";
+
+
+  // --- (B) After 2s: Remove splash, show second image with another grow ---
+
   setTimeout(function() {
-    // Remove splash (so the rest of the header appears)
+    // 1) Remove the splash overlay
     header.classList.remove('splash-active');
 
-    // Swap the source to the second (smaller) logo
+    // 2) Swap to the smaller second logo
     logo.src          = "https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true";
-    logo.style.height = "60px";    // normal final size
+    logo.style.height = "60px";      // normal final size
 
-    // Immediately reset transform/opacity so we can re-animate
+    // 3) Reset transform & animation so we can re-animate from scale(0.5)
     logo.style.animation = "none";
     logo.style.transform = "scale(0.5)";
     logo.style.opacity   = "0";
 
-    // Re-trigger that same fade+grow animation
-    requestAnimationFrame(() => {
-      logo.style.animation = "splashLogoFadeIn 2s forwards";
-    });
+    // 4) Force reflow again
+    void logo.offsetWidth;
+
+    // 5) Assign the same “fade+grow” keyframe
+    logo.style.animation = "splashLogoFadeIn 2s forwards";
 
   }, 2000);
 });

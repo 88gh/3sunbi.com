@@ -19,20 +19,39 @@ Copyright (C) 2025 Geonhwi Hwang. All Rights Reserved.
 NOTICE: All information contained herein is, and remains the property of Geonhwi Hwang. The intellectual and technical concepts contained herein are proprietary and protected by copyright law.
 Unauthorized use, duplication, or dissemination of this information is strictly forbidden without prior written permission from Geonhwi Hwang. This includes unauthorized analysis, deobfuscation, or reverse engineering for any purpose.
 -->
-<header id="site-header" class="splash-active">
-  <img
-    id="logo"
-    src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
-    alt="icon"
-  />
-  <!-- 5 tabs: About, Career, History, Vision, Contact -->
-  <nav class="tabs">
-    <a href="#about" class="nav-link">About</a>
-    <a href="#career" class="nav-link">Career</a>
-    <a href="#history" class="nav-link">History</a>
-    <a href="#vision" class="nav-link">Vision</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
+<!-- Fixed Header: same size on all scroll positions -->
+<header class="bg-white shadow-md fixed w-full z-50">
+  <!-- Container for alignment -->
+  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    
+    <!-- Left: LOGO / MARK -->
+    <div class="flex items-center space-x-2">
+      <!-- Example image/logo -->
+      <img 
+        src="https://github.com/88gh/3sunbi.com/blob/main/images/gat_s_19JUL2024.png?raw=true" 
+        alt="Logo" 
+        class="h-8 w-auto"
+      />
+      <!-- Example text or brand name -->
+      <span class="text-xl font-bold text-gray-900">3Sunbi</span>
+    </div>
+    
+    <!-- Right: TABS (hidden on small screens, visible on md+ screens) -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#about"   class="nav-link hover:text-blue-600">About</a>
+      <a href="#career"  class="nav-link hover:text-blue-600">Career</a>
+      <a href="#history" class="nav-link hover:text-blue-600">History</a>
+      <a href="#vision"  class="nav-link hover:text-blue-600">Vision</a>
+      <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
+    </nav>
+
+    <!-- (Optional) Mobile "hamburger" icon to open a menu if you want:
+    <button class="md:hidden text-gray-800" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    -->
+    
+  </div>
 </header>
 
 <!-- HERO Section -->

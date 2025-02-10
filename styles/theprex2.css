@@ -99,7 +99,7 @@ body {
 
 /* (B) .scrolled means the header has rolled up to 60px tall */
 #site-header.scrolled {
-    height: 60px; /* final small header height */
+    height: 120px; /* final small header height */
 }
 
 /* Hide the splash container once we roll up. Show normal header. */

@@ -7,9 +7,56 @@
 body {
     margin: 0;
     font-family: 'TitleMedium', Segoe UI, sans-serif;
-    background-color: #202022;
-    color: #ffffff;
+    background-color: #f8f9fa;
+    color: #202022;
     line-height: 1.6;
+}
+
+
+/* Then, your new rules: */
+body {
+  font-family: 'Noto Sans KR', 'TitleMedium', sans-serif;
+  background-color: #f8f9fa; /* white-ish mood */
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-link {
+  /* You can’t literally use @apply in a normal CSS file,
+     so just replicate the Tailwind effect: */
+  position: relative;
+  color: #1f2937; /* text-gray-800 */
+  text-decoration: none; /* no-underline */
+  padding: 0.5rem;       /* approximate px-1 py-2 */
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #4f46e5;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Slightly larger logo in both states */
+#site-header.splash-active #logo {
+  transform: translate(-50%, -50%) scale(1.3); /* bigger splash */
+}
+
+#site-header.scrolled #logo {
+  transform: scale(0.7); /* bigger than the original 0.5 */
 }
 
 /* Logo sizing for responsiveness */

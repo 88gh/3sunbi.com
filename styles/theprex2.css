@@ -46,15 +46,15 @@ body {
 }
 
 /* ------------------------------------------------------------------
-   5) FULL-SCREEN SPLASH: for first 2 seconds, show only the logo
+   5) FULL-SCREEN SPLASH: for first 2 seconds, show only the splash logo
    ------------------------------------------------------------------ */
 #site-header.splash-active {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;         /* entire screen */
-    background: #202022;   /* dark splash background */
+    height: 100vh;         /* entire screen for the splash */
+    background: #202022;   /* dark background */
     z-index: 1000;
     overflow: hidden;      /* hide the rest of the page */
     display: flex;
@@ -62,57 +62,63 @@ body {
     justify-content: center;
 }
 
-/* Animate the logo in splash (fade + scale in) */
-#site-header.splash-active #logo {
-    animation: logoSplashFadeIn 2s forwards;
-    /* Force bigger display during splash */
-    max-width: 250px;   /* e.g. bigger than the usual 150px */
+/* Hide the normal header layout (normal logo + tabs) while in splash */
+#site-header.splash-active .normal-logo-container,
+#site-header.splash-active .tabs {
+    display: none;  /* hide for first 2s */
+}
+
+/* Show the splash logo container in splash mode */
+#site-header.splash-active .splash-logo-container {
+    display: block;
+    text-align: center;
+}
+
+/* Animate the splash logo in (fade + scale in) */
+#splash-logo {
+    animation: splashLogoFadeIn 2s forwards;
+    /* Make it significantly larger if you want 3x bigger than normal */
+    max-width: 400px;  /* adjust as you like */
     height: auto;
 }
 
-/* Hide the normal header layout (tabs, etc.) while in splash */
-#site-header.splash-active .header-inner {
-    display: block;   /* override any flex layout for normal state */
-    text-align: center;
-}
-#site-header.splash-active .brand-text,
-#site-header.splash-active .tabs {
-    display: none;    /* hide brand + tabs for 2s */
-}
-
-/* Keyframes for the splash logo */
-@keyframes logoSplashFadeIn {
+/* Keyframes for the big splash logo */
+@keyframes splashLogoFadeIn {
     0% {
-        transform: scale(0.5);
+        transform: scale(0.5); /* start smaller */
         opacity: 0;
     }
     100% {
-        transform: scale(1);
+        transform: scale(1);   /* end at full size (still bigger than normal) */
         opacity: 1;
     }
 }
 
-/* 6) Normal header after splash-active is removed.
-   Now, set .header-inner to max-width 768px for alignment. */
+/* ------------------------------------------------------------------
+   6) Normal header after .splash-active is removed
+   ------------------------------------------------------------------ */
+
+/* Layout container for the header */
 #site-header .header-inner {
-    max-width: 768px;     /* match .container width */
-    margin: 0 auto;       /* center it */
-    padding: 4px;         /* same padding as .container if desired */
+    max-width: 768px;  /* match .container width if you like */
+    margin: 0 auto;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Example for the #logo in normal state: */
-#logo {
+/* Normal logo after splash */
+#normal-logo {
+    /* typical size for the normal header */
     max-width: 150px;
     height: auto;
 }
 
-/* Provide a horizontal layout for the tabs (the nav container). */
+/* Provide a horizontal layout for the nav container (tabs) after splash */
 .tabs {
-    display: flex;        /* horizontal row */
-    gap: 1rem;            /* spacing between nav links */
+    display: flex;
+    gap: 1rem;  /* spacing between nav links */
 }
 
 /* ------------------------------------------------------------------
@@ -124,7 +130,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* The container itself is used in your sections, etc. */
+/* The .container for sections, etc. */
 .container {
     max-width: 768px;
     margin: auto;
@@ -255,6 +261,7 @@ footer a:focus {
 html {
     scroll-behavior: smooth;
 }
+
 
 /* ------------------------------------------------------------------
    COMMENTED OUT: The following classes/IDs are NOT used in your HTML

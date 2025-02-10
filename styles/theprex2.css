@@ -159,6 +159,9 @@ body {
   object-position: center; /* center the image within the square */
   border-radius: 8px;      /* optional if you want slightly rounded corners */
 }
+.links-content {
+  font-size: 0.875rem;
+}
 
 
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */

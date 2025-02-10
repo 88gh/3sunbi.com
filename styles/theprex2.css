@@ -151,42 +151,40 @@ header {
     overflow: hidden;
 }
 
+
 header::after {
   content: '';
   position: absolute;
   bottom: 0;
-  /* Center horizontally */
-  left: 50%;
-  transform: translateX(-50%);
-  /* Full width up to some max if desired */
-  width: 100%;
-  max-width: 1500px;
-
-  /* Stack 3 lines vertically */
-  height: 10px; /* total combined height of lines */
+  left: 0;            /* Now anchored at the left edge */
+  width: 100%;        /* Full width with no max */
+  height: 15px;       /* 3 lines × 5px each = 15px total */
   z-index: 10;
 
-  /* We combine 3 background layers, each occupying some portion of that height */
+  /* We have 3 separate background slices stacked vertically */
   background:
-    /* TOP line: black, 2.4px tall */
+    /* Top line: black (5px tall) */
     linear-gradient(to bottom, #000, #000) no-repeat,
-    /* MIDDLE line: from left(white) → #ffcb30 → #3396ff, 5.2px tall */
+    /* Middle line: your white→gold→blue gradient (5px tall) */
     linear-gradient(to right,
-      #fff 0%, #fff 40%,
+      #fff 0%,   #fff 40%,
       #ffcb30 40%, #ffcb30 60%,
       #3396ff 60%, #3396ff 100%
     ) no-repeat,
-    /* BOTTOM line: red (#ff3636), 2.4px tall */
+    /* Bottom line: red (5px tall) */
     linear-gradient(to bottom, #ff3636, #ff3636) no-repeat;
 
+  /* Each background slice is exactly 5px high, 100% wide */
   background-size:
-    100% 2.4px,
-    100% 5.2px,
-    100% 2.4px;
+    100% 5px,
+    100% 5px,
+    100% 5px;
+
+  /* Position them vertically: top=0, middle=5px, bottom=10px */
   background-position:
-    0 0,         /* top line at y=0 */
-    0 2.4px,     /* middle line at y=2.4px */
-    0 7.6px;     /* bottom line at y=7.6px (2.4 + 5.2) */
+    0 0,
+    0 5px,
+    0 10px;
 }
 
 header h1 {

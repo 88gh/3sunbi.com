@@ -25,10 +25,11 @@ body {
 
 /* 4) Navigation link styling */
 .nav-link {
+    display: inline-block;      /* ensure nav links sit horizontally */
     position: relative;
-    color: #1f2937;      /* text-gray-800 */
+    color: #1f2937;             /* text-gray-800 */
     text-decoration: none;
-    padding: 0.5rem;     /* approximate px-1 py-2 */
+    padding: 0.5rem;            /* approximate px-1 py-2 */
 }
 .nav-link::after {
     content: '';
@@ -88,15 +89,15 @@ body {
     }
 }
 
-/* 6) Normal header after splash-active is removed
-   Use flex layout for .header-inner
-   the logo/brand on the left and tabs on the right.
-*/
+/* 6) Normal header after splash-active is removed.
+   Now, set .header-inner to max-width 768px for alignment. */
 #site-header .header-inner {
+    max-width: 768px;     /* match .container width */
+    margin: 0 auto;       /* center it */
+    padding: 4px;         /* same padding as .container if desired */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
 }
 
 /* Example for the #logo in normal state: */
@@ -105,8 +106,14 @@ body {
     height: auto;
 }
 
+/* Provide a horizontal layout for the tabs (the nav container). */
+.tabs {
+    display: flex;        /* horizontal row */
+    gap: 1rem;            /* spacing between nav links */
+}
+
 /* ------------------------------------------------------------------
-   7) Additional styling from your snippet (some used, some not used)
+   7) Additional styling from your snippet
    ------------------------------------------------------------------ */
 
 /* :lang(en) fallback font if needed */
@@ -114,16 +121,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* The container itself is used in your sections, etc. */
 .container {
     max-width: 768px;
     margin: auto;
     padding: 4px;
 }
 
-/* The <header> in your HTML does rely on some background and color,
-   but certain old styling might conflict with Tailwind/Bootstrap.
-   Keep what's used:
-*/
+/* The <header> background, color, sticky, etc. */
 header {
     background: #202022;
     color: #ffffff;
@@ -148,21 +153,21 @@ header::after {
   width: 100%;
   max-width: 1500px;
 
-  /* Stack 3 lines vertically = total 3 * 2.4px = 7.2px */
-  height: 10px;
+  /* Stack 3 lines vertically */
+  height: 10px; /* total combined height of lines */
   z-index: 10;
 
-  /* We combine 3 background layers, each occupying 2.4px of height */
+  /* We combine 3 background layers, each occupying some portion of that height */
   background:
-    /* TOP line: black */
+    /* TOP line: black, 2.4px tall */
     linear-gradient(to bottom, #000, #000) no-repeat,
-    /* MIDDLE line: from left(white) → #ffcb30 → #3396ff */
+    /* MIDDLE line: from left(white) → #ffcb30 → #3396ff, 5.2px tall */
     linear-gradient(to right,
       #fff 0%, #fff 40%,
       #ffcb30 40%, #ffcb30 60%,
       #3396ff 60%, #3396ff 100%
     ) no-repeat,
-    /* BOTTOM line: red (#ff3636) */
+    /* BOTTOM line: red (#ff3636), 2.4px tall */
     linear-gradient(to bottom, #ff3636, #ff3636) no-repeat;
 
   background-size:
@@ -172,7 +177,7 @@ header::after {
   background-position:
     0 0,         /* top line at y=0 */
     0 2.4px,     /* middle line at y=2.4px */
-    0 4.8px;     /* bottom line at y=4.8px */
+    0 7.6px;     /* bottom line at y=7.6px (2.4 + 5.2) */
 }
 
 header h1 {
@@ -181,7 +186,7 @@ header h1 {
     font-size: 24px;
 }
 
-/* Headings used in your sections (e.g., about, career, etc.) */
+/* Headings used in your sections (e.g., About, Career, etc.) */
 h2 {
     color: #ffffff;
     font-size: 22px;

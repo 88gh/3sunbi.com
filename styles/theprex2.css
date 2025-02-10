@@ -55,7 +55,8 @@ body {
 
     /* The image is always in the background. We'll fade overlays on top of it. */
     background:
-      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+/*      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')*/
+      url('https://github.com/88gh/3sunbi.com/blob/main/images/3sunbi_bg_2.png?raw=true')
       center center / cover no-repeat;
 
     /* This transition is for the "roll-up" effect (height: 100vh → 60px) */

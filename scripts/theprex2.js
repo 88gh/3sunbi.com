@@ -1,15 +1,14 @@
-// After 2 seconds remove splash state
+// After 2 seconds, remove .splash-active so the normal header appears
 window.addEventListener('load', function() {
   setTimeout(function() {
     const header = document.getElementById('site-header');
     header.classList.remove('splash-active');
-    header.classList.add('scrolled');
   }, 2000);
 });
 
-// Ensure the scrolled header remains when the user scrolls
-window.addEventListener('scroll', function() {
-  const header = document.getElementById('site-header');
-  if (window.scrollY > 50) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-});
+// REMOVE or COMMENT OUT anything like this:
+// window.addEventListener('scroll', function() {
+//   const header = document.getElementById('site-header');
+//   if (window.scrollY > 50) header.classList.add('scrolled');
+//   else header.classList.remove('scrolled');
+// });

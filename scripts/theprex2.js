@@ -1,10 +1,3 @@
-// After 2 seconds, remove .splash-active so the normal header appears
-//window.addEventListener('load', function() {
-//  setTimeout(function() {
-//    const header = document.getElementById('site-header');
-//    header.classList.remove('splash-active');
-//  }, 2000);
-//});
 window.addEventListener('load', function() {
   setTimeout(function() {
     const header = document.getElementById('site-header');

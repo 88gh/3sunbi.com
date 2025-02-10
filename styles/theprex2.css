@@ -57,7 +57,15 @@ body {
     background:
       url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
       center center / cover no-repeat;
+
+    /* This transition is for the "roll-up" effect (height: 100vh → 60px) */
+    transition: height 1s ease; /* pick your duration & easing */
 }
+
+/* By default, let's assume a small header size (for scrolled state).
+   If you want the default to be 60px, you can set it now or wait until .scrolled is added:
+   #site-header { height: 60px; }
+   But we'll rely on .scrolled to define that final state. */
 
 /* PSEUDO-ELEMENT OVERLAY: We'll animate its background color to avoid flicker */
 #site-header::before {
@@ -69,7 +77,10 @@ body {
     transition: background-color 0.5s ease; /* for the post-2s fade from 15% → 47% */
 }
 
-/* (A) "splash-active" means: show the big splash container, hide normal header */
+/* (A) "splash-active" means: full screen splash + big logo */
+#site-header.splash-active {
+    height: 100vh; /* entire screen for the first 2s splash */
+}
 #site-header.splash-active .normal-header-container {
     display: none; /* hide the normal header during the first 2s */
 }
@@ -77,8 +88,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;  /* full screen height for the splash */
     width: 100%;
+    height: 100%; /* fill #site-header's 100vh */
 }
 
 /* Animate the overlay from black → black (75%) → 15% white (100%) over 2s */
@@ -86,25 +97,27 @@ body {
     animation: overlayFade 2s forwards;
 }
 
-/* Once splash is removed, hide splash container, show normal header */
-#site-header .splash-logo-container {
-    display: none; /* default hidden */
-}
-.normal-header-container {
-    display: block; /* default visible (unless .splash-active is present) */
-    padding-top: 12px;
-    padding-bottom: 40px;
-    position: relative;
+/* (B) .scrolled means the header has rolled up to 60px tall */
+#site-header.scrolled {
+    height: 60px; /* final small header height */
 }
 
-/* Splash logo can animate if you wish (optional) */
+/* Hide the splash container once we roll up. Show normal header. */
+#site-header.scrolled .splash-logo-container {
+    display: none;
+}
+#site-header.scrolled .normal-header-container {
+    display: block;
+}
+
+/* The splash logo can animate if you wish (optional) */
 #splash-logo {
     max-width: 200px;
     height: auto;
     animation: splashLogoFadeIn 2s forwards;
 }
 
-/* The normal (final) logo size */
+/* The normal (final) small logo */
 #logo {
     height: 60px;
     width: auto;
@@ -143,6 +156,11 @@ body {
 }
 
 /* The lines at the bottom of the normal header */
+.normal-header-container {
+    padding-top: 12px;
+    padding-bottom: 40px;
+    position: relative;
+}
 .normal-header-container::after {
   content: '';
   position: absolute;

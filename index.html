@@ -22,9 +22,8 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
 <!-- HEADER -->
 <header id="site-header" class="splash-active fixed w-full z-50 bg-white shadow-md">
-  <!-- We use a 'wrapper' DIV that has 'display: flex' 
-       in normal mode for logo on the left, nav on the right. -->
-  <div class="header-inner max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+  <!-- Apply a custom class (e.g. .header-container) here to control width & center -->
+  <div class="header-inner header-container">
     
     <!-- Left: logo + brand text -->
     <div class="flex items-center space-x-2">
@@ -34,12 +33,11 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
         alt="Logo"
         style="height: 40px; width: auto;"
       />
-      <!-- If you want brand text alongside the logo after splash: -->
       <span class="brand-text text-xl font-bold text-gray-900">3Sunbi</span>
     </div>
 
-    <!-- Right: nav tabs -->
-    <nav class="tabs flex space-x-8">
+    <!-- Right: horizontal nav -->
+    <nav class="tabs">
       <a href="#about"   class="nav-link">About</a>
       <a href="#career"  class="nav-link">Career</a>
       <a href="#history" class="nav-link">History</a>
@@ -49,7 +47,6 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
   </div>
 </header>
-
 
 <!-- HERO Section -->
 <section class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center" style="margin-top: 0;">

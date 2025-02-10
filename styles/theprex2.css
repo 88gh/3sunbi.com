@@ -149,7 +149,7 @@ header::after {
   max-width: 1500px;
 
   /* Stack 3 lines vertically = total 3 * 2.4px = 7.2px */
-  height: 7.2px;
+  height: 10px;
   z-index: 10;
 
   /* We combine 3 background layers, each occupying 2.4px of height */
@@ -167,7 +167,7 @@ header::after {
 
   background-size:
     100% 2.4px,
-    100% 2.4px,
+    100% 5.2px,
     100% 2.4px;
   background-position:
     0 0,         /* top line at y=0 */

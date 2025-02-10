@@ -15,7 +15,7 @@ body {
     line-height: 1.6;
 }
 
-/* 3) Gradient text effect (Tailwind-like) */
+/* 3) Gradient text effect */
 .gradient-text {
     background: linear-gradient(45deg, #2563eb, #4f46e5);
     -webkit-background-clip: text;
@@ -25,11 +25,11 @@ body {
 
 /* 4) Navigation link styling */
 .nav-link {
-    display: inline-block;      /* ensure nav links sit horizontally */
+    display: inline-block;
     position: relative;
     color: #1f2937;             /* text-gray-800 */
     text-decoration: none;
-    padding: 0.5rem;            /* approximate px-1 py-2 */
+    padding: 0.5rem;
 }
 .nav-link::after {
     content: '';
@@ -45,161 +45,113 @@ body {
     width: 100%;
 }
 
-/* ------------------------------------------------------------------
-   5) FULL-SCREEN SPLASH: for first 2 seconds, show only the splash logo
-   ------------------------------------------------------------------ */
-#site-header.splash-active {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;         /* entire screen for the splash */
-    background: #202022;   /* dark background */
+/* ============ SPLASH / HEADER STYLING ============ */
+/* The header container */
+#site-header {
+    position: relative;
+    background: #202022; /* dark background */
+    color: #202022;
     z-index: 1000;
-    overflow: hidden;      /* hide the rest of the page */
+}
+
+/* (A) "splash-active" means: show the big splash container, hide normal header */
+#site-header.splash-active .normal-header-container {
+    display: none; /* hide the normal header during the first 2s */
+}
+#site-header.splash-active .splash-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;  /* full screen height for the splash */
+    width: 100%;
 }
 
-/* Hide the normal header layout (normal logo + tabs) while in splash */
-#site-header.splash-active .normal-logo-container,
-#site-header.splash-active .tabs {
-    display: none;  /* hide for first 2s */
+/* (B) Once splash-active is removed: hide the splash container, show normal header */
+#site-header .splash-logo-container {
+    display: none; /* default hidden */
+}
+.normal-header-container {
+    display: block; /* default visible (unless .splash-active is present) */
 }
 
-/* Show the splash logo container in splash mode */
-#site-header.splash-active .splash-logo-container {
-    display: block;
-    text-align: center;
-}
-
-/* Animate the splash logo in (fade + scale in) */
+/* Splash logo can animate if you wish (optional) */
 #splash-logo {
-    animation: splashLogoFadeIn 2s forwards;
-    max-width: 150px;
+    /* For example, bigger size for the splash */
+    max-width: 200px;
     height: auto;
+    animation: splashLogoFadeIn 2s forwards;
 }
 
-/* Keyframes for the big splash logo */
+/* Example keyframes if you want fade+scale for the splash */
 @keyframes splashLogoFadeIn {
-    0% {
-        transform: scale(0.5); /* start smaller */
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);   /* end at full size */
-        opacity: 1;
-    }
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-/* ------------------------------------------------------------------
-   6) Normal header after .splash-active is removed
-   ------------------------------------------------------------------ */
-
-/* The header itself */
-header {
-    /* Keep the dark background color & text color as before */
-    background: #202022;
-    color: #202022;
-
-    /* Extra top/bottom padding so the 3 lines at bottom
-       don’t overlap the logo, plus space from page top */
+/* (C) The normal header styling after splash */
+/* Add top/bottom padding so the 3 lines won't overlap the small logo */
+.normal-header-container {
     padding-top: 12px;
     padding-bottom: 40px;
-
-    margin: 0;
-    min-height: 20px;
-    position: sticky; /* or remove if you don't want sticky header */
-    top: 0;
-    z-index: 1000;
-    overflow: hidden;
+    position: relative;
 }
 
-/* The 3 lines at the bottom of the header */
-header::after {
+/* The lines at the bottom of the normal header */
+.normal-header-container::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;        /* Full width, no max */
+  width: 100%;
   height: 15px;       /* 3 lines × 5px each = 15px total */
   z-index: 10;
-
   background:
-    /* Top line: black (5px tall) */
     linear-gradient(to bottom, #000, #000) no-repeat,
-    /* Middle line: white→gold→blue (5px tall) */
     linear-gradient(to right,
       #fff 0%, #fff 40%,
       #ffcb30 40%, #ffcb30 60%,
       #3396ff 60%, #3396ff 100%
     ) no-repeat,
-    /* Bottom line: red (5px tall) */
     linear-gradient(to bottom, #ff3636, #ff3636) no-repeat;
-
   background-size:
     100% 5px,
     100% 5px,
     100% 5px;
-
   background-position:
-    0 0,    /* top line at y=0 */
-    0 5px,  /* middle line at y=5px */
-    0 10px; /* bottom line at y=10px */
+    0 0,
+    0 5px,
+    0 10px;
 }
 
-/* The header-inner container: flex for vertical centering of logo + tabs */
-#site-header .header-inner {
-    max-width: 768px;  /* match .container width if you like */
+/* The normal header-inner: flex for logo left, tabs right, vertically centered */
+.header-inner {
+    max-width: 768px;
     margin: 0 auto;
-    padding: 0 12px;   /* optional horizontal padding */
+    padding: 0 12px;
     display: flex;
-    align-items: center;       /* vertical center */
-    justify-content: space-between; /* push left logo, right tabs */
+    align-items: center;         /* vertical center */
+    justify-content: space-between;
 }
 
-/* Provide a horizontal layout for the nav container (tabs) after splash */
-.tabs {
-    display: flex;
-    gap: 1rem;  /* spacing between nav links */
-}
-
-/* If you had a normal logo with #normal-logo ID, you can keep or remove this */
-#normal-logo {
-    max-width: 150px;
-    height: auto;
-}
-
-/* By default, we want the final (post-splash) logo to be 60px tall */
+/* The normal (final) logo size */
 #logo {
     height: 60px;
     width: auto;
 }
 
-/* :lang(en) fallback font if needed */
-:lang(en) {
-    font-family: Arial, sans-serif;
-}
-
-/* The .container for sections, etc. */
+/* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */
 .container {
     max-width: 768px;
     margin: auto;
     padding: 4px;
 }
 
-header h1 {
-    text-align: left;
-    margin: 0;
-    font-size: 24px;
-}
-
-.contact-icons .col-3 {
-  margin-bottom: 10px;
-}
-
-/* Headings used in your sections (e.g., About, Career, etc.) */
 h2 {
     color: #202022;
     font-size: 22px;
@@ -218,7 +170,6 @@ h4 {
     padding-bottom: 0px;
 }
 
-/* Basic text (p, li) used. */
 p, li {
     font-size: 18px;
 }
@@ -238,9 +189,8 @@ ul li:not(:last-child) {
     margin-bottom: 10px;
 }
 
-/* Footer is used in the HTML */
 footer {
-    padding: 0px 0;
+    padding: 0;
     background-color: white;
     color: black;
     font-size: 0.6rem;
@@ -261,10 +211,16 @@ footer a:focus {
     color: green;
 }
 
-/* Smooth scroll used by the HTML to jump to #about, #career, etc. */
+/* Smooth scroll for anchor links */
 html {
     scroll-behavior: smooth;
 }
+
+/* :lang(en) fallback font if needed */
+:lang(en) {
+    font-family: Arial, sans-serif;
+}
+
 
 /* ------------------------------------------------------------------
    COMMENTED OUT: The following classes/IDs are NOT used in your HTML

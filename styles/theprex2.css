@@ -106,13 +106,24 @@ body {
 /* 1) Keyframes: stay black until 75% (1.5s), then fade to white by 100% (2s) */
 @keyframes splashBackgroundFade {
   0% {
-    background-color: #202022; /* black */
+    /* black overlay on top of the image => fully black background */
+    background:
+      linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
+      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+      center center / cover no-repeat;
   }
   75% {
-    background-color: #202022; /* still black */
+    background:
+      linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
+      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+      center center / cover no-repeat;
   }
   100% {
-    background-color: #ffffff; /* white */
+    /* final state at 2s => show the same image with 15% white overlay */
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),
+      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+      center center / cover no-repeat;
   }
 }
 
@@ -123,7 +134,10 @@ body {
 
 /* 3) After splash is removed, keep the background white */
 #site-header:not(.splash-active) {
-  background-color: #ffffff; /* matches final frame of the animation */
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.47), rgba(255, 255, 255, 0.47)),
+    url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+    center center / cover no-repeat;
 }
 
 

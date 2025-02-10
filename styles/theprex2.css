@@ -134,7 +134,7 @@ body {
 /* The <header> background, color, sticky, etc. */
 header {
     background: #202022;
-    color: #ffffff;
+    color: #202022;
     padding-top: 6px;
     padding-bottom: 2px;
     margin: 0;
@@ -191,18 +191,18 @@ header h1 {
 
 /* Headings used in your sections (e.g., About, Career, etc.) */
 h2 {
-    color: #ffffff;
+    color: #202022;
     font-size: 22px;
     padding: 8px;
 }
 h3 {
-    color: #ffffff;
+    color: #202022;
     font-size: 18px;
     padding: 7px;
     padding-bottom: 0px;
 }
 h4 {
-    color: #ffffff;
+    color: #202022;
     font-size: 16px;
     padding: 7px;
     padding-bottom: 0px;

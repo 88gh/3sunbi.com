@@ -20,23 +20,23 @@ NOTICE: All information contained herein is, and remains the property of Geonhwi
 Unauthorized use, duplication, or dissemination of this information is strictly forbidden without prior written permission from Geonhwi Hwang. This includes unauthorized analysis, deobfuscation, or reverse engineering for any purpose.
 -->
 <!-- Fixed Header: same size on all scroll positions -->
-<header class="bg-white shadow-md fixed w-full z-50">
-  <!-- Container for alignment -->
+<header
+  id="site-header"
+  class="bg-white shadow-md fixed w-full z-50 splash-active"
+>
   <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-    
-    <!-- Left: LOGO / MARK -->
+    <!-- Logo / Mark -->
     <div class="flex items-center space-x-2">
-      <!-- Example image/logo -->
       <img 
-        src="https://github.com/88gh/3sunbi.com/blob/main/images/gat_s_19JUL2024.png?raw=true" 
-        alt="Logo" 
+        id="logo"
+        src="..."
+        alt="Logo"
         class="h-8 w-auto"
       />
-      <!-- Example text or brand name -->
       <span class="text-xl font-bold text-gray-900">3Sunbi</span>
     </div>
-    
-    <!-- Right: TABS (hidden on small screens, visible on md+ screens) -->
+
+    <!-- Tabs for md+ screens -->
     <nav class="hidden md:flex space-x-8">
       <a href="#about"   class="nav-link hover:text-blue-600">About</a>
       <a href="#career"  class="nav-link hover:text-blue-600">Career</a>
@@ -44,13 +44,6 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
       <a href="#vision"  class="nav-link hover:text-blue-600">Vision</a>
       <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
     </nav>
-
-    <!-- (Optional) Mobile "hamburger" icon to open a menu if you want:
-    <button class="md:hidden text-gray-800" onclick="toggleMobileMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
-    -->
-    
   </div>
 </header>
 

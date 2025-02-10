@@ -82,6 +82,12 @@ body {
     animation: splashLogoFadeIn 2s forwards;
 }
 
+/* The normal (final) logo size */
+#logo {
+    height: 60px;
+    width: auto;
+}
+
 /* Example keyframes if you want fade+scale for the splash */
 @keyframes splashLogoFadeIn {
   0% {
@@ -137,12 +143,6 @@ body {
     display: flex;
     align-items: center;         /* vertical center */
     justify-content: space-between;
-}
-
-/* The normal (final) logo size */
-#logo {
-    height: 60px;
-    width: auto;
 }
 
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */

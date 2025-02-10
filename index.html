@@ -20,80 +20,137 @@ NOTICE: All information contained herein is, and remains the property of Geonhwi
 Unauthorized use, duplication, or dissemination of this information is strictly forbidden without prior written permission from Geonhwi Hwang. This includes unauthorized analysis, deobfuscation, or reverse engineering for any purpose.
 -->
 <header id="site-header" class="splash-active">
-  <img id="logo" src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true" alt="icon">
-  <nav class="tabs">
-    <a href="#tab1">Tab 1</a>
-    <a href="#tab2">Tab 2</a>
-    <a href="#tab3">Tab 3</a>
+  <img
+    id="logo"
+    src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
+    alt="icon"
+  />
+  <!-- 5 tabs: About, Career, History, Vision, Contact -->
+  <nav class="tabs hidden md:flex space-x-8">
+    <a href="#about" class="nav-link">About</a>
+    <a href="#career" class="nav-link">Career</a>
+    <a href="#history" class="nav-link">History</a>
+    <a href="#vision" class="nav-link">Vision</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </nav>
 </header>
-    
-<section class="section" style="margin-top: 80px;">
-  <div class="container text-center">
-    <h2 style="margin-bottom: 20px;">선비들</h2>
-    <div class="row justify-content-center">
 
-      <!-- 박준 -->
-      <div class="col-md-4 mb-4">
-        <img src="https://upload.wikimedia.org/wikipedia/en/6/6a/Kyoto_University_Logo.png"
-             alt="Kyoto University"
-             class="img-fluid"
-             style="max-width: 180px; margin-bottom: 15px;">
-        <h3>박준</h3>
-        <p>18기 한일공동이공계학부유학시험 합격<br>
-           오카야마대학 이학부 수학과 졸업<br>
-           현 교토대학원 지능정보학 석사<br>
-           현 삼선비에듀 수학전임강사
-        </p>
-        <div class="mt-3">
-          <a href="#" class="btn btn-success mb-2">박선비의 개인 홈페이지</a><br>
-          <a href="#" class="btn btn-success">박선비의 수학 커리큘럼</a>
-        </div>
-      </div>
 
-      <!-- 황건휘 -->
-      <div class="col-md-4 mb-4">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Hokkaido_University_Logo.svg/512px-Hokkaido_University_Logo.svg.png"
-             alt="Hokkaido University"
-             class="img-fluid"
-             style="max-width: 180px; margin-bottom: 15px;">
-        <h3>황건휘</h3>
-        <p>18기 한일공동이공계학부유학시험 합격<br>
-           홋카이도대학 공학부 응용물리학과 졸업<br>
-           현 홋카이도대학원 물리공학박사<br>
-           현 삼선비에듀 물리전임강사
-        </p>
-        <div class="mt-3">
-          <a href="#" class="btn btn-success mb-2">황선비의 개인 홈페이지</a><br>
-          <a href="#" class="btn btn-success">황선비의 물리 커리큘럼</a>
-        </div>
-      </div>
-
-      <!-- 노경오 -->
-      <div class="col-md-4 mb-4">
-        <img src="https://raw.githubusercontent.com/88gh/3sunbi.com/main/images/logo_nogyeongo_s.png"
-             alt="Nogyeongo Symbol"
-             class="img-fluid"
-             style="max-width: 180px; margin-bottom: 15px;">
-        <h3>노경오</h3>
-        <p>18기 한일공동이공계학부유학시험 합격<br>
-           현 도쿄공업대학 이학부 화학계 재학<br>
-           현 삼선비에듀 화학전임강사
-        </p>
-        <div class="mt-3">
-          <a href="#" class="btn btn-success mb-2">노선비의 개인 홈페이지</a><br>
-          <a href="#" class="btn btn-success">노선비의 화학 커리큘럼</a>
-        </div>
-      </div>
-
+<!-- HERO Section -->
+<section
+  class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center"
+  style="margin-top: 0;"
+>
+  <div class="container mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+      환영합니다!  
+    </h1>
+    <p class="text-lg text-gray-600 mb-8">
+      (예시) 여기에서 사이트의 주요 소개문을 입력하세요.
+    </p>
+    <div class="flex justify-center space-x-4">
+      <a
+        href="#career"
+        class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+      >
+        주요경력 보기
+      </a>
+      <a
+        href="#contact"
+        class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition duration-300"
+      >
+        Contact
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p>&copy; 2025 3Sunbi Edu. All rights reserved.</p>
+<!-- About Section -->
+<section id="about" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
+      About
+    </h2>
+    <div class="bg-white rounded-xl shadow-lg p-8">
+      <p class="text-gray-700 leading-relaxed">
+        이곳에 “About” 내용을 작성하세요. (회사나 개인의 소개, 철학 등)
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Career Section -->
+<section id="career" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
+      Career
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Example card -->
+      <div class="card bg-white rounded-xl shadow-lg p-6">
+        <h3 class="text-xl font-semibold mb-2">주요 경력 1</h3>
+        <p class="text-gray-600 mb-2">경력 상세 설명 예시</p>
+        <a
+          href="#"
+          class="text-blue-600 hover:underline"
+          >(관련 링크 등)</a
+        >
+      </div>
+      <!-- Add more cards or items here -->
+    </div>
+  </div>
+</section>
+
+<!-- History Section -->
+<section id="history" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
+      History
+    </h2>
+    <div class="bg-white rounded-xl shadow-lg p-8">
+      <p class="text-gray-700 leading-relaxed">
+        연혁 / 히스토리를 소개하는 섹션입니다.  
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Vision Section -->
+<section id="vision" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
+      Vision
+    </h2>
+    <div class="bg-white rounded-xl shadow-lg p-8">
+      <p class="text-gray-700 leading-relaxed">
+        향후 비전을 설명하는 섹션입니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
+      Contact
+    </h2>
+    <div class="bg-white rounded-xl shadow-lg p-8">
+      <p class="text-gray-700 leading-relaxed">
+        연락처나 문의 양식 링크 등을 여기에 입력하세요.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+  <div class="container mx-auto px-6 text-center">
+    <p class="text-gray-400">© 2025 MySite. All rights reserved.</p>
+  </div>
 </footer>
 
+<!-- theprex2.js ensures splash → scrolled after 2s, also on scroll -->
+<script src="scripts/theprex2.js"></script>
 </body>
 </html>

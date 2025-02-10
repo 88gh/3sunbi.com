@@ -145,6 +145,15 @@ body {
     justify-content: space-between;
 }
 
+/* ============ ============ */
+.square-profile {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */
 .container {
     max-width: 768px;

@@ -193,6 +193,10 @@ header h1 {
     font-size: 24px;
 }
 
+.contact-icons .col-3 {
+  margin-bottom: 10px;
+}
+
 /* Headings used in your sections (e.g., About, Career, etc.) */
 h2 {
     color: #202022;

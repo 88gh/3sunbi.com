@@ -143,20 +143,45 @@ header {
 }
 
 header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 1500px;
-    height: 2.4px;
-    background: linear-gradient(to right, 
-                                transparent 0%, 
-                                #6080a0 23.33%, 
-                                #6080a0 76.67%, 
-                                transparent 100%);
-    transform: translateX(-50%);
-    z-index: 10;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  /* Center horizontally like your old approach: */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Full width up to some max if desired: */
+  width: 100%;
+  max-width: 1500px;
+
+  /* Stack 3 lines vertically = total 3 * 2.4px = 7.2px */
+  height: 7.2px;
+  z-index: 10;
+
+  /* We combine 3 background layers, each occupying 2.4px of height */
+  background:
+    /* TOP line: black */
+    linear-gradient(to bottom, #000, #000) no-repeat,
+    /* MIDDLE line: from left(white) → #ffcb30 → #3396ff */
+    linear-gradient(to right,
+      #fff 0%, #fff 40%,
+      #ffcb30 40%, #ffcb30 60%,
+      #3396ff 60%, #3396ff 100%
+    ) no-repeat,
+    /* BOTTOM line: red (#ff3636) */
+    linear-gradient(to bottom, #ff3636, #ff3636) no-repeat;
+
+  /* Each layer is 100% wide and 2.4px tall,
+     stacked at different vertical positions. */
+  background-size:
+    100% 2.4px,
+    100% 2.4px,
+    100% 2.4px;
+  background-position:
+    0 0,         /* top line at y=0 */
+    0 2.4px,     /* middle line at y=2.4px */
+    0 4.8px;     /* bottom line at y=4.8px */
 }
+
 
 header h1 {
     text-align: left;

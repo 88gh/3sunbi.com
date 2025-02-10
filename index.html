@@ -22,9 +22,8 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
 <!-- HEADER -->
 <header id="site-header" class="splash-active">
-  <!-- A) SPLASH CONTAINER (visible only for 2s) -->
+  <!-- (A) SPLASH ONLY: big 4_3 logo -->
   <div class="splash-logo-container">
-    <!-- Large splash image, e.g. 120px tall or bigger -->
     <img
       id="splash-logo"
       src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
@@ -32,20 +31,21 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
     />
   </div>
 
-  <!-- B) NORMAL HEADER (hidden for the first 2s) -->
+  <!-- (B) NORMAL HEADER (hidden while .splash-active is present) -->
   <div class="normal-header-container">
+    <!-- The lines at the bottom are in CSS via .normal-header-container::after -->
+
     <div class="header-inner">
       <!-- Left: smaller final logo -->
-      <div class="logo-container">
-        <a href="https://www.3sunbi.com">
-          <img
-            id="logo"
-            src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true"
-            alt="Final Logo"
-          />
-        </a>
-      </div>
-      <!-- Right: the nav tabs -->
+      <a href="https://www.3sunbi.com" class="logo-link">
+        <img
+          id="final-logo"
+          src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true"
+          alt="Logo"
+        />
+      </a>
+
+      <!-- Right: your nav tabs -->
       <nav class="tabs">
         <a href="#about"   class="nav-link">About</a>
         <a href="#career"  class="nav-link">Career</a>

@@ -152,6 +152,13 @@ body {
   object-fit: cover;
   object-position: center;
 }
+.square-button {
+  width: 70px;             /* fixed width */
+  height: 70px;            /* fixed height -> square shape */
+  object-fit: cover;       /* crop/zoom if the image aspect ratio differs */
+  object-position: center; /* center the image within the square */
+  border-radius: 8px;      /* optional if you want slightly rounded corners */
+}
 
 
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */

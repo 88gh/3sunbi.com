@@ -27,7 +27,7 @@ body {
 .nav-link {
     position: relative;
     color: #1f2937;      /* text-gray-800 */
-    text-decoration: none; 
+    text-decoration: none;
     padding: 0.5rem;     /* approximate px-1 py-2 */
 }
 .nav-link::after {
@@ -47,8 +47,6 @@ body {
 /* ------------------------------------------------------------------
    5) FULL-SCREEN SPLASH: for first 2 seconds, show only the logo
    ------------------------------------------------------------------ */
-
-/* .splash-active makes the header take up the entire screen, dark BG */
 #site-header.splash-active {
     position: fixed;
     top: 0;
@@ -60,7 +58,7 @@ body {
     overflow: hidden;      /* hide the rest of the page */
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
 }
 
 /* Animate the logo in splash (fade + scale in) */
@@ -73,7 +71,7 @@ body {
     display: block;   /* override any flex layout for normal state */
     text-align: center;
 }
-#site-header.splash-active .brand-text,  /* if you have brand text */
+#site-header.splash-active .brand-text,
 #site-header.splash-active .tabs {
     display: none;    /* hide brand + tabs for 2s */
 }
@@ -90,29 +88,25 @@ body {
     }
 }
 
-/* 6) Normal header after splash-active is removed 
-   Use flex layout for .header-inner to place 
-   the logo/brand on the left and tabs on the right. 
-   (If you rely on Tailwind in HTML, this might be moot,
-   but here’s a fallback in case.)
+/* 6) Normal header after splash-active is removed
+   Use flex layout for .header-inner
+   the logo/brand on the left and tabs on the right.
 */
 #site-header .header-inner {
-    /* on normal state, display as a row */
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-/* Example for the #logo in normal state:
-   (If you want it bigger or smaller, adjust below.) */
+/* Example for the #logo in normal state: */
 #logo {
     max-width: 150px;
     height: auto;
 }
 
 /* ------------------------------------------------------------------
-   7) Additional styling from your snippet
+   7) Additional styling from your snippet (some used, some not used)
    ------------------------------------------------------------------ */
 
 /* :lang(en) fallback font if needed */
@@ -126,9 +120,10 @@ body {
     padding: 4px;
 }
 
-/* If your <header> uses pure Tailwind in HTML, 
-   you can remove these if they conflict. 
-   Otherwise keep them if you want. */
+/* The <header> in your HTML does rely on some background and color,
+   but certain old styling might conflict with Tailwind/Bootstrap.
+   Keep what's used:
+*/
 header {
     background: #202022;
     color: #ffffff;
@@ -146,10 +141,10 @@ header::after {
   content: '';
   position: absolute;
   bottom: 0;
-  /* Center horizontally like your old approach: */
+  /* Center horizontally */
   left: 50%;
   transform: translateX(-50%);
-  /* Full width up to some max if desired: */
+  /* Full width up to some max if desired */
   width: 100%;
   max-width: 1500px;
 
@@ -170,8 +165,6 @@ header::after {
     /* BOTTOM line: red (#ff3636) */
     linear-gradient(to bottom, #ff3636, #ff3636) no-repeat;
 
-  /* Each layer is 100% wide and 2.4px tall,
-     stacked at different vertical positions. */
   background-size:
     100% 2.4px,
     100% 2.4px,
@@ -182,14 +175,13 @@ header::after {
     0 4.8px;     /* bottom line at y=4.8px */
 }
 
-
 header h1 {
     text-align: left;
     margin: 0;
     font-size: 24px;
 }
 
-/* Example headings for dark backgrounds */
+/* Headings used in your sections (e.g., about, career, etc.) */
 h2 {
     color: #ffffff;
     font-size: 22px;
@@ -208,6 +200,7 @@ h4 {
     padding-bottom: 0px;
 }
 
+/* Basic text (p, li) used. */
 p, li {
     font-size: 18px;
 }
@@ -227,7 +220,7 @@ ul li:not(:last-child) {
     margin-bottom: 10px;
 }
 
-/* Footer defaults (light background, dark text, etc.) */
+/* Footer is used in the HTML */
 footer {
     padding: 0px 0;
     background-color: white;
@@ -245,15 +238,21 @@ footer a {
     color: black;
     text-decoration: none;
 }
-footer a:hover, footer a:focus {
+footer a:hover,
+footer a:focus {
     color: green;
 }
 
+/* Smooth scroll used by the HTML to jump to #about, #career, etc. */
 html {
     scroll-behavior: smooth;
 }
 
-/* Examples of badges or custom classes you had */
+/* ------------------------------------------------------------------
+   COMMENTED OUT: The following classes/IDs are NOT used in your HTML
+   ------------------------------------------------------------------ */
+
+/*
 .badge {
     background-color: #80a060;
     margin-left: 0;
@@ -306,15 +305,15 @@ html {
     padding-right: 0;
 }
 .section .list-group-item {
-    padding: 0; 
+    padding: 0;
     padding-top: 8px;
     padding-bottom: 10px;
-    border: none; 
+    border: none;
     border-top: 1px solid #575757;
     border-radius: 0px;
 }
-.section .list-group-item .badge, 
-.section .list-group-item .badger, 
+.section .list-group-item .badge,
+.section .list-group-item .badger,
 .section .list-group-item .badgeb {
     display: inline-block;
     min-width: 150px;
@@ -368,3 +367,4 @@ div.col-md-8.order-md-1 p.curpmaw {
     color: white;
     border: none;
 }
+*/

@@ -12,3 +12,11 @@ window.addEventListener('scroll', function() {
   if (window.scrollY > 50) header.classList.add('scrolled');
   else header.classList.remove('scrolled');
 });
+// After 2 seconds remove splash-active
+window.addEventListener('load', function() {
+  ...
+});
+// On scroll, toggle .scrolled
+window.addEventListener('scroll', function() {
+  ...
+});

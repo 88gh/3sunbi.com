@@ -22,22 +22,29 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
 <!-- HEADER -->
 <header id="site-header" class="splash-active fixed w-full z-50 bg-white shadow-md">
-  <!-- Header Container (controls width & center) -->
   <div class="header-inner header-container">
     
-    <!-- Left: clickable logo only -->
-    <div class="flex items-center space-x-2">
+    <!-- Splash Logo: shows for the first 2s -->
+    <div class="splash-logo-container">
+      <img
+        id="splash-logo"
+        src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
+        alt="Splash Logo"
+      />
+    </div>
+
+    <!-- Normal Logo: appears after the first 2s -->
+    <div class="normal-logo-container flex items-center space-x-2">
       <a href="https://www.3sunbi.com" class="inline-block">
         <img
-          id="logo"
-          src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
-          alt="Logo"
-          style="height: 60px; width: auto;"
+          id="normal-logo"
+          src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true"
+          alt="Normal Header Logo"
         />
       </a>
     </div>
 
-    <!-- Right: horizontal nav -->
+    <!-- Navigation -->
     <nav class="tabs">
       <a href="#about"   class="nav-link">About</a>
       <a href="#career"  class="nav-link">Career</a>
@@ -48,6 +55,7 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
   </div>
 </header>
+
 
 <!-- HERO Section -->
 <section class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center" style="margin-top: 20px;">

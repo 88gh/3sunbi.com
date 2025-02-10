@@ -65,6 +65,9 @@ body {
 /* Animate the logo in splash (fade + scale in) */
 #site-header.splash-active #logo {
     animation: logoSplashFadeIn 2s forwards;
+    /* Force bigger display during splash */
+    max-width: 250px;   /* e.g. bigger than the usual 150px */
+    height: auto;
 }
 
 /* Hide the normal header layout (tabs, etc.) while in splash */

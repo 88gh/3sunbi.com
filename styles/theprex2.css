@@ -46,12 +46,27 @@ body {
 }
 
 /* ============ SPLASH / HEADER STYLING ============ */
+
 /* The header container */
 #site-header {
     position: relative;
-    background: #202022; /* dark background */
-    color: #202022;
     z-index: 1000;
+    overflow: hidden; /* so the pseudo-element overlay stays contained */
+
+    /* The image is always in the background. We'll fade overlays on top of it. */
+    background:
+      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
+      center center / cover no-repeat;
+}
+
+/* PSEUDO-ELEMENT OVERLAY: We'll animate its background color to avoid flicker */
+#site-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; /* don't block clicks */
+    background-color: rgba(0, 0, 0, 1); /* start fully black overlay */
+    transition: background-color 0.5s ease; /* for the post-2s fade from 15% → 47% */
 }
 
 /* (A) "splash-active" means: show the big splash container, hide normal header */
@@ -66,17 +81,24 @@ body {
     width: 100%;
 }
 
-/* (B) Once splash-active is removed: hide the splash container, show normal header */
+/* Animate the overlay from black → black (75%) → 15% white (100%) over 2s */
+#site-header.splash-active::before {
+    animation: overlayFade 2s forwards;
+}
+
+/* Once splash is removed, hide splash container, show normal header */
 #site-header .splash-logo-container {
     display: none; /* default hidden */
 }
 .normal-header-container {
     display: block; /* default visible (unless .splash-active is present) */
+    padding-top: 12px;
+    padding-bottom: 40px;
+    position: relative;
 }
 
 /* Splash logo can animate if you wish (optional) */
 #splash-logo {
-    /* For example, bigger size for the splash */
     max-width: 200px;
     height: auto;
     animation: splashLogoFadeIn 2s forwards;
@@ -88,7 +110,7 @@ body {
     width: auto;
 }
 
-/* Example keyframes if you want fade+scale for the splash */
+/* Keyframes for the splash logo fade+scale */
 @keyframes splashLogoFadeIn {
   0% {
     transform: scale(0.5);
@@ -100,53 +122,24 @@ body {
   }
 }
 
-
-/* =========== ADDED BACKGROUND FADE ANIMATION =========== */
-
-/* 1) Keyframes: stay black until 75% (1.5s), then fade to white by 100% (2s) */
-@keyframes splashBackgroundFade {
+/* =========== OVERLAY KEYFRAMES =========== */
+/* 0-75% (0-1.5s): black overlay. Then 75%-100% (1.5s-2s) fade to 15% white. */
+@keyframes overlayFade {
   0% {
-    /* black overlay on top of the image => fully black background */
-    background:
-      linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
-      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
-      center center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 1);
   }
   75% {
-    background:
-      linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)),
-      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
-      center center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 1);
   }
   100% {
-    /* final state at 2s => show the same image with 15% white overlay */
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)),
-      url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
-      center center / cover no-repeat;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 }
 
-/* 2) Apply the animation to #site-header when splash-active is present */
-#site-header.splash-active {
-  animation: splashBackgroundFade 2s forwards;
-}
-
-/* 3) After splash is removed, keep the background white */
-#site-header:not(.splash-active) {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.47), rgba(255, 255, 255, 0.47)),
-    url('https://github.com/88gh/3sunbi.com/blob/main/images/why3sunbi2.png?raw=true')
-    center center / cover no-repeat;
-}
-
-
-/* (C) The normal header styling after splash */
-/* Add top/bottom padding so the 3 lines won't overlap the small logo */
-.normal-header-container {
-    padding-top: 12px;
-    padding-bottom: 40px;
-    position: relative;
+/* =========== POST-SPLASH BACKGROUND =========== */
+/* After 2s, once .splash-active is removed, we want a 47% white overlay. */
+#site-header:not(.splash-active)::before {
+  background-color: rgba(255, 255, 255, 0.47);
 }
 
 /* The lines at the bottom of the normal header */
@@ -183,7 +176,7 @@ body {
   padding: 0 12px; /* optional horizontal padding */
   max-width: 768px; /* default (tablet) */
   display: flex;
-  align-items: center;         /* vertical center */
+  align-items: center; /* vertical center */
   justify-content: space-between;
   flex-wrap: nowrap;  /* ensures they stay on one line */
 }
@@ -203,10 +196,9 @@ body {
 /* Hide tabs on screens below 768px */
 @media (max-width: 767px) {
   .tabs {
-    display: none !important; /* or visibility: hidden; if you'd prefer the space to remain */
+    display: none !important; /* or visibility: hidden */
   }
 }
-
 
 /* ============ ============ */
 .square-profile {
@@ -216,18 +208,18 @@ body {
   object-position: center;
 }
 .square-button {
-  width: 70px;             /* fixed width */
-  height: 70px;            /* fixed height -> square shape */
-  object-fit: cover;       /* crop/zoom if the image aspect ratio differs */
-  object-position: center; /* center the image within the square */
-  border-radius: 8px;      /* optional if you want slightly rounded corners */
+  width: 70px;   /* fixed width */
+  height: 70px;  /* square shape */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px; /* optional rounding */
 }
 .links-content {
-  font-size: 0.42rem;
+  font-size: 0.42rem; /* you had 0.42rem */
 }
 
-
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */
+/* Responsive container with breakpoints (768px, 992px, 1200px) */
 .container {
   width: 100%;
   margin: auto;
@@ -235,14 +227,12 @@ body {
   max-width: 768px; /* default for tablet and up */
 }
 
-/* At >= 992px (a common “desktop” breakpoint), we allow up to 992px */
 @media (min-width: 992px) {
   .container {
     max-width: 992px;
   }
 }
 
-/* At >= 1200px (large desktop), go up to 1200px */
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;

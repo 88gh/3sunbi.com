@@ -1,4 +1,4 @@
-// After 2 seconds remove splash state to reveal the small header with tabs
+// After 2 seconds remove splash state
 window.addEventListener('load', function() {
   setTimeout(function() {
     const header = document.getElementById('site-header');
@@ -6,17 +6,10 @@ window.addEventListener('load', function() {
     header.classList.add('scrolled');
   }, 2000);
 });
-// Optionally, ensure the scrolled header remains when the user scrolls down
+
+// Ensure the scrolled header remains when the user scrolls
 window.addEventListener('scroll', function() {
   const header = document.getElementById('site-header');
   if (window.scrollY > 50) header.classList.add('scrolled');
   else header.classList.remove('scrolled');
-});
-// After 2 seconds remove splash-active
-window.addEventListener('load', function() {
-  ...
-});
-// On scroll, toggle .scrolled
-window.addEventListener('scroll', function() {
-  ...
 });

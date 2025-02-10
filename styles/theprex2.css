@@ -100,6 +100,33 @@ body {
   }
 }
 
+
+/* =========== ADDED BACKGROUND FADE ANIMATION =========== */
+
+/* 1) Keyframes: stay black until 75% (1.5s), then fade to white by 100% (2s) */
+@keyframes splashBackgroundFade {
+  0% {
+    background-color: #202022; /* black */
+  }
+  75% {
+    background-color: #202022; /* still black */
+  }
+  100% {
+    background-color: #ffffff; /* white */
+  }
+}
+
+/* 2) Apply the animation to #site-header when splash-active is present */
+#site-header.splash-active {
+  animation: splashBackgroundFade 2s forwards;
+}
+
+/* 3) After splash is removed, keep the background white */
+#site-header:not(.splash-active) {
+  background-color: #ffffff; /* matches final frame of the animation */
+}
+
+
 /* (C) The normal header styling after splash */
 /* Add top/bottom padding so the 3 lines won't overlap the small logo */
 .normal-header-container {

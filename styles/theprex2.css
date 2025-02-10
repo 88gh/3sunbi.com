@@ -78,7 +78,7 @@ body {
 #splash-logo {
     animation: splashLogoFadeIn 2s forwards;
     /* Make it significantly larger if you want 3x bigger than normal */
-    max-width: 400px;  /* adjust as you like */
+    max-width: 150px;  /* adjust as you like */
     height: auto;
 }
 

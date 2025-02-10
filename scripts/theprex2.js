@@ -9,40 +9,34 @@
 window.addEventListener('load', function() {
   const header = document.getElementById('site-header');
   const logo   = document.getElementById('logo');
+  
+  // (A) First: Show the big splash image, animate from scale(0.5) → scale(1)
+  logo.src             = "https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true";
+  logo.style.height    = "120px";    // bigger than normal
+  logo.style.transform = "scale(0.5)";
+  logo.style.opacity   = "0";
+  logo.style.animation = "none";     // clear any old animation
+  
+  // Force reflow, then add the animation
+  requestAnimationFrame(() => {
+    logo.style.animation = "splashLogoFadeIn 2s forwards";
+  });
 
-  //
-  //  A) For the first 2s, use bigger size & disable any “grow” animation
-  //
-  logo.style.height    = "120px";   // 2× bigger than normal 60px
-  logo.style.width     = "auto";
-  logo.style.transform = "none";    // just show as-is
-  logo.style.opacity   = "1";
-  logo.style.animation = "none";    // disable the grow animation (if any)
-
-  //
-  //  B) After 2s, remove splash & switch to second logo
-  //
+  // (B) After 2s, remove splash & animate the second image
   setTimeout(function() {
-    // 1) hide the splash
+    // Remove splash (so the rest of the header appears)
     header.classList.remove('splash-active');
 
-    // 2) swap the logo to 3sunbiedu_sq_4_3_2.png
-    logo.src = "https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true";
+    // Swap the source to the second (smaller) logo
+    logo.src          = "https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3_2.png?raw=true";
+    logo.style.height = "60px";    // normal final size
 
-    // 3) set the normal smaller size
-    logo.style.height = "60px";
-    logo.style.width  = "auto";
-
-    // 4) Force it to start from smaller scale, then animate to scale(1)
-    //    so we see the “get-larger” effect
+    // Immediately reset transform/opacity so we can re-animate
+    logo.style.animation = "none";
     logo.style.transform = "scale(0.5)";
     logo.style.opacity   = "0";
 
-    // 5) Re-trigger the scale+fade animation 
-    //    (We use the same keyframes that were in your CSS for #splash-logo.)
-    //    e.g. “splashLogoFadeIn 2s forwards”
-    //    Use requestAnimationFrame trick so the browser sees the transform “jump”
-    //    before applying the animation; that way you get a clean 0% → 100% transition.
+    // Re-trigger that same fade+grow animation
     requestAnimationFrame(() => {
       logo.style.animation = "splashLogoFadeIn 2s forwards";
     });

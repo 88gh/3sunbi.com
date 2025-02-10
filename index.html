@@ -19,33 +19,37 @@ Copyright (C) 2025 Geonhwi Hwang. All Rights Reserved.
 NOTICE: All information contained herein is, and remains the property of Geonhwi Hwang. The intellectual and technical concepts contained herein are proprietary and protected by copyright law.
 Unauthorized use, duplication, or dissemination of this information is strictly forbidden without prior written permission from Geonhwi Hwang. This includes unauthorized analysis, deobfuscation, or reverse engineering for any purpose.
 -->
-<!-- Fixed Header: same size on all scroll positions -->
-<header
-  id="site-header"
-  class="bg-white shadow-md fixed w-full z-50 splash-active"
->
-  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-    <!-- Logo / Mark -->
+
+<!-- HEADER -->
+<header id="site-header" class="splash-active fixed w-full z-50 bg-white shadow-md">
+  <!-- We use a 'wrapper' DIV that has 'display: flex' 
+       in normal mode for logo on the left, nav on the right. -->
+  <div class="header-inner max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    
+    <!-- Left: logo + brand text -->
     <div class="flex items-center space-x-2">
-      <img 
+      <img
         id="logo"
-        src="..."
+        src="https://github.com/88gh/3sunbi.com/blob/main/images/3sunbiedu_sq_4_3.png?raw=true"
         alt="Logo"
-        class="h-8 w-auto"
+        style="height: 40px; width: auto;"
       />
-      <span class="text-xl font-bold text-gray-900">3Sunbi</span>
+      <!-- If you want brand text alongside the logo after splash: -->
+      <span class="brand-text text-xl font-bold text-gray-900">3Sunbi</span>
     </div>
 
-    <!-- Tabs for md+ screens -->
-    <nav class="hidden md:flex space-x-8">
-      <a href="#about"   class="nav-link hover:text-blue-600">About</a>
-      <a href="#career"  class="nav-link hover:text-blue-600">Career</a>
-      <a href="#history" class="nav-link hover:text-blue-600">History</a>
-      <a href="#vision"  class="nav-link hover:text-blue-600">Vision</a>
-      <a href="#contact" class="nav-link hover:text-blue-600">Contact</a>
+    <!-- Right: nav tabs -->
+    <nav class="tabs flex space-x-8">
+      <a href="#about"   class="nav-link">About</a>
+      <a href="#career"  class="nav-link">Career</a>
+      <a href="#history" class="nav-link">History</a>
+      <a href="#vision"  class="nav-link">Vision</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
+
   </div>
 </header>
+
 
 <!-- HERO Section -->
 <section class="pt-32 pb-20 bg-gradient-to-r from-blue-50 to-indigo-50 text-center" style="margin-top: 0;">

@@ -141,6 +141,10 @@ body {
   margin: 0 auto;
   padding: 0 12px; /* optional horizontal padding */
   max-width: 768px; /* default (tablet) */
+  display: flex;
+  align-items: center;         /* vertical center */
+  justify-content: space-between;
+  flex-wrap: nowrap;  /* ensures they stay on one line */
 }
 
 @media (min-width: 992px) {

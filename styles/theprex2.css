@@ -137,13 +137,31 @@ body {
 
 /* The normal header-inner: flex for logo left, tabs right, vertically centered */
 .header-inner {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;         /* vertical center */
-    justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 12px; /* optional horizontal padding */
+  max-width: 768px; /* default (tablet) */
 }
+
+@media (min-width: 992px) {
+  .header-inner {
+    max-width: 992px; /* desktop breakpoint */
+  }
+}
+
+@media (min-width: 1200px) {
+  .header-inner {
+    max-width: 1200px; /* large desktop breakpoint */
+  }
+}
+
+/* Hide tabs on screens below 768px */
+@media (max-width: 767px) {
+  .tabs {
+    display: none !important; /* or visibility: hidden; if you'd prefer the space to remain */
+  }
+}
+
 
 /* ============ ============ */
 .square-profile {
@@ -166,9 +184,24 @@ body {
 
 /* ============ LAYOUT FOR SECTIONS, FOOTER, ETC. ============ */
 .container {
-    max-width: 768px;
-    margin: auto;
-    padding: 4px;
+  width: 100%;
+  margin: auto;
+  padding: 4px;
+  max-width: 768px; /* default for tablet and up */
+}
+
+/* At >= 992px (a common “desktop” breakpoint), we allow up to 992px */
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+/* At >= 1200px (large desktop), go up to 1200px */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
 }
 
 h2 {

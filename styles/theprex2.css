@@ -44,7 +44,11 @@ body {
     width: 100%;
 }
 
-/* 5) Full-screen splash state for 2 seconds */
+/* ------------------------------------------------------------------
+   5) FULL-SCREEN SPLASH: for first 2 seconds, show only the logo
+   ------------------------------------------------------------------ */
+
+/* .splash-active makes the header take up the entire screen, dark BG */
 #site-header.splash-active {
     position: fixed;
     top: 0;
@@ -59,13 +63,19 @@ body {
     justify-content: center; 
 }
 
-/* Animate logo in splash (fade + scale in) */
+/* Animate the logo in splash (fade + scale in) */
 #site-header.splash-active #logo {
     animation: logoSplashFadeIn 2s forwards;
 }
-/* Hide nav while in splash */
+
+/* Hide the normal header layout (tabs, etc.) while in splash */
+#site-header.splash-active .header-inner {
+    display: block;   /* override any flex layout for normal state */
+    text-align: center;
+}
+#site-header.splash-active .brand-text,  /* if you have brand text */
 #site-header.splash-active .tabs {
-    display: none;
+    display: none;    /* hide brand + tabs for 2s */
 }
 
 /* Keyframes for the splash logo */
@@ -80,22 +90,32 @@ body {
     }
 }
 
-/* 6) Normal header after splash-active is removed
-   (If you’re using a Tailwind-based header in the HTML, 
-   you may not need extra rules here, 
-   but we can add them if needed.)
+/* 6) Normal header after splash-active is removed 
+   Use flex layout for .header-inner to place 
+   the logo/brand on the left and tabs on the right. 
+   (If you rely on Tailwind in HTML, this might be moot,
+   but here’s a fallback in case.)
 */
+#site-header .header-inner {
+    /* on normal state, display as a row */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 
-/* Example: ensure #logo fits nicely when not in splash */
+/* Example for the #logo in normal state:
+   (If you want it bigger or smaller, adjust below.) */
 #logo {
     max-width: 150px;
     height: auto;
 }
 
-/* If you do NOT want any "scroll shrink" or .scrolled logic,
-   simply remove or comment out any #site-header.scrolled rules. */
+/* ------------------------------------------------------------------
+   7) Additional styling from your snippet
+   ------------------------------------------------------------------ */
 
-/* 7) Additional basic styling from your snippet: */
+/* :lang(en) fallback font if needed */
 :lang(en) {
     font-family: Arial, sans-serif;
 }
@@ -106,8 +126,9 @@ body {
     padding: 4px;
 }
 
-/* The following “header” rules can be removed or adjusted 
-   if your header uses pure Tailwind classes in the HTML. */
+/* If your <header> uses pure Tailwind in HTML, 
+   you can remove these if they conflict. 
+   Otherwise keep them if you want. */
 header {
     background: #202022;
     color: #ffffff;
@@ -115,11 +136,12 @@ header {
     padding-bottom: 2px;
     margin: 0;
     min-height: 20px;
-    position: sticky;
+    position: sticky; /* or remove if you don't want sticky header */
     top: 0;
     z-index: 1000;
     overflow: hidden;
 }
+
 header::after {
     content: '';
     position: absolute;
@@ -142,7 +164,7 @@ header h1 {
     font-size: 24px;
 }
 
-/* Example headings */
+/* Example headings for dark backgrounds */
 h2 {
     color: #ffffff;
     font-size: 22px;

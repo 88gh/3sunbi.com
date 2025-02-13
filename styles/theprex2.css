@@ -265,35 +265,39 @@ body {
 }
 
 /* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-/* Make each "row" a horizontal flex container by default */
-.row {
+/* Make the items horizontal by default */
+.exp-row {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem; /* spacing between items */
-}
-.col-auto {
-  /* just sized to content (the image) */
-}
-.col {
-  flex: 1; /* take remaining space */
-  text-align: left;
+  margin-bottom: 1rem;
 }
 
-/* On mobile (below 768px), stack them vertically */
+/* .exp-col-auto => shrink to fit image width */
+.exp-col-auto {
+  margin-right: 1rem;
+}
+
+/* .exp-col => fill remaining space */
+.exp-col {
+  flex: 1;
+  text-align: left; /* left-align name & content */
+}
+
+/* On small screens (<768px), stack vertically */
 @media (max-width: 767px) {
-  .row {
-    flex-direction: column;
-    align-items: flex-start;
+  .exp-row {
+    flex-direction: column;       /* vertical stack */
+    align-items: flex-start;      /* left align */
   }
-  .row .col-auto,
-  .row .col {
-    width: 100%; /* full width stack */
+  .exp-col-auto,
+  .exp-col {
+    width: 100%; /* full width each */
   }
-  /* The image can get margin-bottom if you want spacing before name & content */
-  .row .col-auto img {
-    margin-bottom: 0.5rem;
+  .exp-col-auto img {
+    margin-bottom: 0.5rem; /* spacing between image & text */
   }
 }
+
 /* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

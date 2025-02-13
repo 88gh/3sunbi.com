@@ -355,17 +355,17 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 <!-- Vision セクション -->
 <section id="vision" class="py-20 bg-gray-50">
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
-      Vision
-    </h2>
+    <h2 class="text-3xl font-bold mb-12 text-center gradient-text">Vision</h2>
 
     <!-- 白背景のボックス -->
-    <div style="
-      background-color: #fff; 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
-      padding: 1rem; 
-      border-radius: 1rem; 
-      margin-bottom: 1rem;"
+    <div 
+      style="
+        background-color: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-bottom: 1rem;
+      "
     >
       <!-- 説明文 -->
       <p style="margin-bottom: 1rem;">
@@ -374,20 +374,22 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
       </p>
 
       <!-- マインドマップ コンテナ -->
-      <div class="relative mindmap-container" style="width: 500px; height: 500px; margin: 0 auto;">
+      <div class="mindmap-container mx-auto">
         <!-- 中心ノード -->
         <div class="mindmap-center">
           Vision of 3sunbi
         </div>
 
-        <!-- 放射状に並ぶ要素(7つ) -->
-        <div class="mindmap-branch" style="--angle: 0deg;">챗봇</div>
-        <div class="mindmap-branch" style="--angle: 51deg;">AI</div>
-        <div class="mindmap-branch" style="--angle: 102deg;">교육앱</div>
-        <div class="mindmap-branch" style="--angle: 153deg;">과외</div>
-        <div class="mindmap-branch" style="--angle: 204deg;">강의플랫폼</div>
-        <div class="mindmap-branch" style="--angle: 255deg;">외주</div>
-        <div class="mindmap-branch" style="--angle: 306deg;">법률상담</div>
+        <!-- 放射状に並ぶ要素(7つ) 
+             style="--angle: XXdeg; --branch-color: #XXXXXX;" のように書き換えると
+             好みの角度、色を個別に指定可能です。 -->
+        <div class="mindmap-branch" style="--angle: 0deg; --branch-color: #E77676;">챗봇</div>
+        <div class="mindmap-branch" style="--angle: 51deg; --branch-color: #6BCB77;">AI</div>
+        <div class="mindmap-branch" style="--angle: 102deg; --branch-color: #4D96FF;">교육앱</div>
+        <div class="mindmap-branch" style="--angle: 153deg; --branch-color: #FFD93D;">과외</div>
+        <div class="mindmap-branch" style="--angle: 204deg; --branch-color: #C34A36;">강의플랫폼</div>
+        <div class="mindmap-branch" style="--angle: 255deg; --branch-color: #845EC2;">외주</div>
+        <div class="mindmap-branch" style="--angle: 306deg; --branch-color: #00C9A7;">법률상담</div>
       </div>
     </div>
   </div>

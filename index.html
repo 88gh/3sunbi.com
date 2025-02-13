@@ -340,18 +340,90 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
 
 
 <!-- Vision Section -->
+<!-- Vision セクション -->
 <section id="vision" class="py-20 bg-gray-50">
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold mb-12 text-center gradient-text">
       Vision
     </h2>
-    <div style="background-color: #fff; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); padding: 1rem; border-radius: 1rem; margin-bottom: 1rem;">
-삼선비는 다음과 같은 서비스를 기획하고 있습니다!
-챗봇 AI 교육앱 과외 강의플랫폼 외주 법률상담
+
+    <!-- 白背景のボックス -->
+    <div style="
+      background-color: #fff; 
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+      padding: 1rem; 
+      border-radius: 1rem; 
+      margin-bottom: 1rem;"
+    >
+      <!-- 説明文 -->
+      <p style="margin-bottom: 1rem;">
+        삼선비는 다음과 같은 서비스를 기획하고 있습니다!<br>
+        챗봇 AI 교육앱 과외 강의플랫폼 외주 법률상담
+      </p>
+
+      <!-- マインドマップ コンテナ -->
+      <div class="relative mindmap-container" style="width: 500px; height: 500px; margin: 0 auto;">
+        <!-- 中心ノード -->
+        <div class="mindmap-center">
+          Vision of 3sunbi
+        </div>
+
+        <!-- 放射状に並ぶ要素(7つ) -->
+        <div class="mindmap-branch" style="--angle: 0deg;">챗봇</div>
+        <div class="mindmap-branch" style="--angle: 51deg;">AI</div>
+        <div class="mindmap-branch" style="--angle: 102deg;">교육앱</div>
+        <div class="mindmap-branch" style="--angle: 153deg;">과외</div>
+        <div class="mindmap-branch" style="--angle: 204deg;">강의플랫폼</div>
+        <div class="mindmap-branch" style="--angle: 255deg;">외주</div>
+        <div class="mindmap-branch" style="--angle: 306deg;">법률상담</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- デモ用: インラインスタイル(必要に応じて theprex2.css に移動) -->
+<style>
+/* マインドマップの中心ノード */
+.mindmap-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+/* 放射状に並ぶ各ノード */
+.mindmap-branch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* --angleで渡した角度を使って円形に配置する */
+  transform: rotate(var(--angle)) translateX(200px) rotate(calc(var(--angle) * -1));
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+</style>
+
+  
 
 <!-- 
 Copyright (C) 2025 Geonhwi Hwang. All Rights Reserved.

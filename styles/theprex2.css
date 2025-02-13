@@ -266,35 +266,37 @@ body {
 
 /* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* Make the items horizontal by default */
-.exp-row {
+/* Only target #experience .exp-row, .exp-col, etc. */
+
+#experience .exp-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* top-aligned instead of center */
   margin-bottom: 1rem;
+  text-align: left; /* ensure left-alignment */
 }
 
-/* .exp-col-auto => shrink to fit image width */
-.exp-col-auto {
+#experience .exp-col-auto {
   margin-right: 1rem;
 }
 
-/* .exp-col => fill remaining space */
-.exp-col {
+#experience .exp-col {
   flex: 1;
-  text-align: left; /* left-align name & content */
+  /* Force left text alignment in case a parent is text-center */
+  text-align: left !important;
 }
 
-/* On small screens (<768px), stack vertically */
+/* On small screens, stack vertically */
 @media (max-width: 767px) {
-  .exp-row {
-    flex-direction: column;       /* vertical stack */
-    align-items: flex-start;      /* left align */
+  #experience .exp-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .exp-col-auto,
-  .exp-col {
-    width: 100%; /* full width each */
+  #experience .exp-col-auto,
+  #experience .exp-col {
+    width: 100%;
   }
-  .exp-col-auto img {
-    margin-bottom: 0.5rem; /* spacing between image & text */
+  #experience .exp-col-auto img {
+    margin-bottom: 0.5rem;
   }
 }
 

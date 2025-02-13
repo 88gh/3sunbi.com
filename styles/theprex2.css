@@ -24,8 +24,6 @@ body {
     color: transparent;
 }
 
-  background: linear-gradient(90deg, #ff006e, #8338ec);
-
 /* 4) Navigation link styling */
 .nav-link {
     display: inline-block;

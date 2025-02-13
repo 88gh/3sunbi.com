@@ -342,61 +342,87 @@ body {
 }
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
-/* マインドマップを配置するコンテナ。大きさ固定＆relative で子要素を絶対配置 */
+/* ===== Mind Map Container ===== */
 .mindmap-container {
   position: relative;
-  width: 500px;  /* 任意で調整可能 */
-  height: 500px; /* 任意で調整可能 */
-  margin: 0 auto; /* 親要素幅の中央に */
-  background-color: #f8f8f8; /* デモ用の背景色(お好みで変更可) */
+  /* Set a fixed width/height so the absolute-positioned branches have a reference */
+  width: 500px;
+  height: 500px;
+
+  /* Center horizontally in its parent */
+  margin: 0 auto;
+
+  /* Optional background + rounded corners for the container */
+  background-color: #f8f8f8;
   border-radius: 1rem;
 }
 
-/* 中心ノード */
+/* ===== Center Node ===== */
 .mindmap-center {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 140px;
   height: 140px;
+
   border-radius: 50%;
   background: linear-gradient(45deg, #2563eb, #4f46e5);
   color: #fff;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+  /* Move center node to the actual center */
   transform: translate(-50%, -50%);
+
+  /* Center text within the node */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
   font-weight: bold;
   padding: 0.5rem;
 }
 
-/* 放射状に配置するブランチノード */
+/* ===== Radial Branch Nodes =====
+   Each branch uses a custom CSS variable --angle for placement,
+   and --branch-color for the node background if desired. */
 .mindmap-branch {
   position: absolute;
   top: 50%;
   left: 50%;
-  /*
-    --angle: 角度 (deg)
-    rotate()→translateX()→逆回転 の順に適用し、
-    放射状に配置して文字の向きは正面に戻す
+
+  /* 
+     Step 1: rotate(var(--angle)) → rotate the branch around the center
+     Step 2: translateX(200px) → push outward from center by 200px
+     Step 3: rotate(calc(var(--angle) * -1)) → re-orient the text upright 
   */
-  transform: rotate(var(--angle)) translateX(200px) rotate(calc(var(--angle) * -1));
+  transform: rotate(var(--angle)) 
+             translateX(200px)
+             rotate(calc(var(--angle) * -1));
+
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  /* --branch-colorがあればその色を背景に、なければ紫ベースのグラデーション */
+
+  /* 
+     Use --branch-color if set; otherwise default to 
+     a purple-ish gradient 
+  */
   background: var(--branch-color, linear-gradient(45deg, #3b82f6, #6366f1));
   color: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+
+  /* Center text within the node */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
   font-size: 0.9rem;
   padding: 0.5rem;
 }
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 
 h2 {

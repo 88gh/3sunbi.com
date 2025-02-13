@@ -436,6 +436,11 @@ ul li:not(:last-child) {
     margin-bottom: 10px;
 }
 
+#links p {
+  font-size: 16px !important;
+  /* also override line-height if needed */
+}
+
 footer {
     padding: 0;
     background-color: white;

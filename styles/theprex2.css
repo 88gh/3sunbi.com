@@ -342,75 +342,36 @@ body {
 }
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
-/* Mind map container that scales to available width */
-.mindmap-container {
-  position: relative;
-  /* Let the container shrink/grow, up to 500px max */
-  width: clamp(300px, 80vw, 500px);
-  /* Keep it square: same width & height */
-  aspect-ratio: 1;
-  /* Center horizontally */
-  margin: 0 auto;
-
-  /* Remove default background or border radius (if you want no gray box) */
-  background: none;
-}
-
-/* Center node */
-.mindmap-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: linear-gradient(45deg, #2563eb, #4f46e5);
-  color: #fff;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transform: translate(-50%, -50%);
-
+/* The container for all circles (flex + wrap) */
+.circle-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  font-weight: bold;
-  padding: 0.5rem;
+  flex-wrap: wrap;        /* allow circles to wrap to new lines */
+  align-items: flex-start; /* top-aligned if different heights */
+  gap: 1rem;              /* spacing between circles */
 }
 
-/* Radial branches, with smaller distance than 200px (e.g. 130px) */
-.mindmap-branch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* 
-     1) rotate(var(--angle)) to set angle around the center
-     2) translateX(130px) = radial distance from center (reduce from 200)
-     3) rotate(...) back to keep text upright
-  */
-  transform: rotate(var(--angle)) 
-             translateX(130px)
-             rotate(calc(var(--angle) * -1));
+/* Each circle item */
+.circle-item {
+  /* Use the custom property as background, else fallback to #3b82f6 */
+  background: var(--branch-color, #3b82f6);
+  color: #fff;
 
+  /* Circle shape */
   width: 90px;
   height: 90px;
   border-radius: 50%;
 
-  /* 
-     Use --branch-color if provided, else fallback gradient 
-  */
-  background: var(--branch-color, linear-gradient(45deg, #3b82f6, #6366f1));
-  color: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-
+  /* Center text inside */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  /* Optional shadow + styling */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   font-size: 0.9rem;
   padding: 0.5rem;
 }
-
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 

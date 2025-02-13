@@ -393,48 +393,6 @@ Unauthorized use, duplication, or dissemination of this information is strictly 
   </div>
 </section>
 
-<!-- デモ用: インラインスタイル(必要に応じて theprex2.css に移動) -->
-<style>
-/* マインドマップの中心ノード */
-.mindmap-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: bold;
-  padding: 0.5rem;
-}
-
-/* 放射状に並ぶ各ノード */
-.mindmap-branch {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* --angleで渡した角度を使って円形に配置する */
-  transform: rotate(var(--angle)) translateX(200px) rotate(calc(var(--angle) * -1));
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 0.5rem;
-}
-</style>
-
   
 
 <!-- 

@@ -264,6 +264,38 @@ body {
   }
 }
 
+/* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* Make each "row" a horizontal flex container by default */
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem; /* spacing between items */
+}
+.col-auto {
+  /* just sized to content (the image) */
+}
+.col {
+  flex: 1; /* take remaining space */
+  text-align: left;
+}
+
+/* On mobile (below 768px), stack them vertically */
+@media (max-width: 767px) {
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .row .col-auto,
+  .row .col {
+    width: 100%; /* full width stack */
+  }
+  /* The image can get margin-bottom if you want spacing before name & content */
+  .row .col-auto img {
+    margin-bottom: 0.5rem;
+  }
+}
+/* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 /* Horizontal line behind the timeline items */

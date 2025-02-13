@@ -342,7 +342,17 @@ body {
 }
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
-/* マインドマップの中心ノード */
+/* マインドマップを配置するコンテナ。大きさ固定＆relative で子要素を絶対配置 */
+.mindmap-container {
+  position: relative;
+  width: 500px;  /* 任意で調整可能 */
+  height: 500px; /* 任意で調整可能 */
+  margin: 0 auto; /* 親要素幅の中央に */
+  background-color: #f8f8f8; /* デモ用の背景色(お好みで変更可) */
+  border-radius: 1rem;
+}
+
+/* 中心ノード */
 .mindmap-center {
   position: absolute;
   top: 50%;
@@ -350,7 +360,8 @@ body {
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background-color: #fff;
+  background: linear-gradient(45deg, #2563eb, #4f46e5);
+  color: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transform: translate(-50%, -50%);
   display: flex;
@@ -361,22 +372,23 @@ body {
   padding: 0.5rem;
 }
 
-/* 放射状に並ぶ各ノード */
+/* 放射状に配置するブランチノード */
 .mindmap-branch {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* 
-    --angle で受け取った角度に応じて
-    回転(rotate)→平行移動(translateX)→逆回転(rotate(-...)) 
-    することで円形に要素を配置。
+  /*
+    --angle: 角度 (deg)
+    rotate()→translateX()→逆回転 の順に適用し、
+    放射状に配置して文字の向きは正面に戻す
   */
   transform: rotate(var(--angle)) translateX(200px) rotate(calc(var(--angle) * -1));
-  /* 以下はノードの見た目 */
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background-color: #fff;
+  /* --branch-colorがあればその色を背景に、なければ紫ベースのグラデーション */
+  background: var(--branch-color, linear-gradient(45deg, #3b82f6, #6366f1));
+  color: #fff;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
@@ -385,12 +397,6 @@ body {
   font-size: 0.9rem;
   padding: 0.5rem;
 }
-
-/*
-  線を引きたい場合は、疑似要素やカスタム要素を使って
-  center(中央) から各 .mindmap-branch へ線を引くことも可能です。
-  例）.mindmap-branch::before { ... } などで工夫してください。
-*/
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 
 h2 {

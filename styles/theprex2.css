@@ -342,38 +342,33 @@ body {
 }
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
-/* ===== Mind Map Container ===== */
+/* Mind map container that scales to available width */
 .mindmap-container {
   position: relative;
-  /* Set a fixed width/height so the absolute-positioned branches have a reference */
-  width: 500px;
-  height: 500px;
-
-  /* Center horizontally in its parent */
+  /* Let the container shrink/grow, up to 500px max */
+  width: clamp(300px, 80vw, 500px);
+  /* Keep it square: same width & height */
+  aspect-ratio: 1;
+  /* Center horizontally */
   margin: 0 auto;
 
-  /* Optional background + rounded corners for the container */
-  background-color: #f8f8f8;
-  border-radius: 1rem;
+  /* Remove default background or border radius (if you want no gray box) */
+  background: none;
 }
 
-/* ===== Center Node ===== */
+/* Center node */
 .mindmap-center {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 140px;
   height: 140px;
-
   border-radius: 50%;
   background: linear-gradient(45deg, #2563eb, #4f46e5);
   color: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-
-  /* Move center node to the actual center */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transform: translate(-50%, -50%);
 
-  /* Center text within the node */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -383,21 +378,18 @@ body {
   padding: 0.5rem;
 }
 
-/* ===== Radial Branch Nodes =====
-   Each branch uses a custom CSS variable --angle for placement,
-   and --branch-color for the node background if desired. */
+/* Radial branches, with smaller distance than 200px (e.g. 130px) */
 .mindmap-branch {
   position: absolute;
   top: 50%;
   left: 50%;
-
   /* 
-     Step 1: rotate(var(--angle)) → rotate the branch around the center
-     Step 2: translateX(200px) → push outward from center by 200px
-     Step 3: rotate(calc(var(--angle) * -1)) → re-orient the text upright 
+     1) rotate(var(--angle)) to set angle around the center
+     2) translateX(130px) = radial distance from center (reduce from 200)
+     3) rotate(...) back to keep text upright
   */
   transform: rotate(var(--angle)) 
-             translateX(200px)
+             translateX(130px)
              rotate(calc(var(--angle) * -1));
 
   width: 90px;
@@ -405,23 +397,20 @@ body {
   border-radius: 50%;
 
   /* 
-     Use --branch-color if set; otherwise default to 
-     a purple-ish gradient 
+     Use --branch-color if provided, else fallback gradient 
   */
   background: var(--branch-color, linear-gradient(45deg, #3b82f6, #6366f1));
   color: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-
-  /* Center text within the node */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-
   font-size: 0.9rem;
   padding: 0.5rem;
 }
+
 
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 

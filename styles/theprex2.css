@@ -304,42 +304,75 @@ body {
 
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-/* Horizontal line behind the timeline items */
-.timeline {
-  /* position: relative; already set inline */
-  height: 4px;          /* thickness of the line */
-  background: #ccc;     /* color of the connecting line */
-  margin-top: 2.5rem;   /* space above line */
+/* Container that wraps all timeboxes */
+.timebox-list {
+  margin-top: 2rem;
 }
 
-/* Each timeline-item is 16.6% wide if you have 6 items, 20% if 5 items, etc. 
-   Adjust so they fit across in one row. 
-   We used inline "display: inline-block; width:16.6%" for each item. */
-
-/* Circles on the line */
-.timeline-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #f97316;  /* an orange color or whatever you like */
-  border: 4px solid white; /* optional border so circle stands out */
+/* Each item in the timeline */
+.timebox {
   position: relative;
-  top: -20px;     /* half the circle's height => centers on the 4px line */
+  margin: 2.5rem 0; /* vertical space between items */
+  min-height: 80px; /* ensures enough height for the line + circle */
 }
 
-/* Year text under each circle */
-.timeline-year {
-  margin-top: -10px;     /* pull it up a bit if you want it closer to the circle */
+/* The vertical line */
+.timebox-line {
+  position: absolute;
+  left: 20px;    /* indent from the left edge */
+  top: 0;
+  width: 2px;
+  height: 80px;  /* length of the line - adjust as needed */
+  background: #ccc;
+}
+
+/* The circle in the center of the line */
+.timebox-circle {
+  position: absolute;
+  left: 11px; /* roughly (20 - (circleWidth/2)) to center over line */
+  top: 50%;   /* center it vertically */
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f97316;   /* your chosen color */
+  border: 2px solid #fff; /* optional white border so it stands out */
+}
+
+/* The text box. 
+   “above” or “below” classes let you change where it sits relative to the circle. */
+.timebox-content {
+  position: absolute;
+  left: 60px; /* shift text to the right of the line */
+  width: calc(100% - 80px); /* so it doesn't overflow outside the card, etc. */
+  background: none; /* no background by default, or add a box if you want */
+}
+
+/* If you want text above the circle */
+.timebox-content.above {
+  bottom: 100%;     /* place it above the .timebox-line’s container */
+  margin-bottom: 10px;
+  transform: translateY(-0.5rem); /* nudge it if you like */
+}
+
+/* If you want text below the circle, switch to .below instead of .above in the HTML */
+.timebox-content.below {
+  top: 100%;
+  margin-top: 10px;
+}
+
+.timebox-content h3 {
+  font-size: 1.1rem;
+  margin: 0;
   font-weight: bold;
 }
 
-/* Additional text below the year */
-.timeline-text {
-  font-size: 0.9rem;
-  color: #444; 
-  margin-top: 0.5rem;
-  line-height: 1.3;
+.timebox-content p {
+  margin: 6px 0 0;
+  line-height: 1.4;
+  color: #444;
 }
+
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 /* The container for all circles (flex + wrap) */

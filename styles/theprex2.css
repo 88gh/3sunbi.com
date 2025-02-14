@@ -300,7 +300,12 @@ body {
   }
 }
 
+
 /* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.exp-shadow {
+  padding-left: 20px;
+  padding-right: 20px; /* optional, remove if you only want left indent */
+}
 
 /* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* Timebox container: now a horizontal flex container that wraps */

@@ -266,7 +266,37 @@ body {
   }
 }
 
-/* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* BUTTON            @@@@@@@@@@@@@@@@@@@@@   starts*/
+
+.btn.btn-success.btn-psunbi {
+  background-color: #fff !important;  /* white background */
+  border-color: #444 !important;      /* darker gray or black border */
+  color: #000 !important;            /* black text */
+}
+
+.btn.btn-success.btn-psunbi:hover {
+  background-color: #f2f2f2 !important; /* or #e6e6e6, etc. */
+  border-color: #444 !important;
+}
+
+.btn.btn-success.btn-hsunbi:hover {
+  /* For a gold original (#ffcb30) */
+  background-color: #e6af2c;
+  border-color: #e6af2c;
+}
+
+.btn.btn-success.btn-nsunbi:hover {
+  /* For a blue original (#3396ff) */
+  background-color: #2780d6;
+  border-color: #2780d6;
+}
+
+
+/* BUTTON            @@@@@@@@@@@@@@@@@@@@@    END */
+
+
+
+/* Career             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* Make the items horizontal by default */
 /* Only target #experience .exp-row, .exp-col, etc. */
 
@@ -303,7 +333,7 @@ body {
 }
 
 
-/* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* Career             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 /* timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@ */
 /* 

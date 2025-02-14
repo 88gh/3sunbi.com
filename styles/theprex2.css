@@ -337,11 +337,17 @@ body {
       in normal flow, so if text is too long, it pushes the box downward 
       instead of overlapping the line.
 */
-.timebox-above,
-.timebox-below {
+
+.timebox-above {
   text-align: center;
   color: #444;
-  margin: 0.5rem 0;        /* spacing around those blocks */
+  margin: 0.2rem 0;        /* spacing around those blocks */
+}
+
+.timebox-below {
+  text-align: left;
+  color: #444;
+  margin: 0.2rem 0;        /* spacing around those blocks */
 }
 
 /* 
@@ -354,7 +360,7 @@ body {
   width: 100%;
   height: 2px;              /* thickness of the line */
   background: #ccc;         /* line color */
-  margin: 0.5rem 0;         /* spacing above/below the line */
+  margin: 0.8rem 0;         /* spacing above/below the line */
 }
 
 /* The circle inside the line container */

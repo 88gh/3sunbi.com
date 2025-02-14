@@ -398,9 +398,18 @@ body {
 /* The container for all circles (flex + wrap) */
 .circle-list {
   display: flex;
-  flex-wrap: wrap;        /* allow circles to wrap to new lines */
-  align-items: flex-start; /* top-aligned if different heights */
-  gap: 1rem;              /* spacing between circles */
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0 auto;     /* centers the container horizontally */
+  max-width: 70%;     /* default for screens >= 768px */
+}
+
+/* For small screens (under 768px) => 90% width */
+@media (max-width: 767px) {
+  .circle-list {
+    max-width: 90%;
+  }
 }
 
 /* Each circle item */

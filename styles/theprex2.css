@@ -393,7 +393,62 @@ body {
   /* No special white-space needed; default is normal, which line-breaks automatically */
 }
 
+TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
+/* The container for all circles (flex + wrap) */
+.circle-list {
+  display: flex;
+  flex-wrap: wrap;        /* allow circles to wrap to new lines */
+  align-items: flex-start; /* top-aligned if different heights */
+  gap: 1rem;              /* spacing between circles */
+}
+
+/* Each circle item */
+.circle-item {
+  /* Use the custom property as background, else fallback to #3b82f6 */
+  background: var(--branch-color, #3b82f6);
+  color: #fff;
+
+  /* Circle shape */
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  /* Center text inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* Optional shadow + styling */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+.circle-item2 {
+  /* Use the custom property as background, else fallback to #3b82f6 */
+  background: var(--branch-color, #3b82f6);
+  color: #fff;
+
+  /* Circle shape */
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+
+  /* Center text inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* Optional shadow + styling */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
+
+
 
 h2 {
     color: #202022;

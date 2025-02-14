@@ -308,7 +308,7 @@ body {
 .timebox-list {
   display: flex;
   flex-wrap: wrap;       /* Let items wrap to a new line if there's not enough space */
-  gap: 2rem;             /* Space between each timebox */
+  gap: 0.2rem;             /* Space between each timebox */
   margin-top: 2rem;      /* Optional top spacing */
   /* 
      Optionally, if you need left padding or indentation inside 
@@ -321,8 +321,8 @@ body {
 /* 2) Each timebox is a fixed 200×120 box. */
 .timebox {
   position: relative;
-  width: 200px;          /* Fixed width */
-  height: 120px;         /* Fixed height */
+  width: 100px;          /* Fixed width */
+  height: 200px;         /* Fixed height */
   margin: 0;             /* No extra margin */
   box-sizing: border-box; /* So padding doesn't expand it beyond 200px */
   /*

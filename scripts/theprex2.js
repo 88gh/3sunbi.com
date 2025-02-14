@@ -1,23 +1,26 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // Force the scroll position to the top
+  // 1) Disable scroll restoration so browsers don’t restore previous scroll on reload
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  // 2) Immediately scroll to the top
   window.scrollTo(0, 0);
 
-  // Then your 2-second splash logic, e.g.:
-  setTimeout(() => {
-    const header = document.getElementById('site-header');
-    header.classList.remove('splash-active');
-    header.classList.add('scrolled');
-  }, 2000);
-});
+  // 3) Disable scrolling during splash
+  document.body.style.overflow = "hidden";
 
-window.addEventListener("load", function() {
-  setTimeout(function() {
+  // 4) After 2 seconds, remove splash and allow scrolling
+  setTimeout(() => {
     const header = document.getElementById("site-header");
-    // 1) remove splash-active
+    // remove splash
     header.classList.remove("splash-active");
-    // 2) add scrolled
+    // add scrolled
     header.classList.add("scrolled");
-  }, 2000); // after 2 seconds
+
+    // Restore normal scrolling
+    document.body.style.overflow = "";
+  }, 2000);
 });
 
 

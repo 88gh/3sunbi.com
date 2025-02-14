@@ -303,7 +303,7 @@ body {
 
 /* EXP@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-/* TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@ */
 /* 1) Container for all timeboxes in a row, wrapping if needed */
 .timebox-list {
   display: flex;
@@ -393,7 +393,8 @@ body {
   /* No special white-space needed; default is normal, which line-breaks automatically */
 }
 
-TIMELINE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@timebox@@@@@@@@@@@@@ */
+
 /* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@MINDMAP@@@ */
 /* The container for all circles (flex + wrap) */
 .circle-list {

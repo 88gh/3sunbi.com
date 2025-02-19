@@ -248,7 +248,7 @@ body {
 .container {
   width: 100%;
   margin: auto;
-/*  text-align: center;*/
+  text-align: center;
   padding: 7px;
   max-width: 768px; /* default for tablet and up */
 }

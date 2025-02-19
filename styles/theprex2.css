@@ -248,14 +248,10 @@ body {
 .container {
   width: 100%;
   margin: auto;
-  text-align: center; /* not "text-center" */
+/*  text-align: center;*/
   padding: 7px;
   max-width: 768px; /* default for tablet and up */
 }
-#links .container {
-  text-align: left !important;
-}
-
 
 @media (min-width: 992px) {
   .container {
